@@ -1,0 +1,87 @@
+{
+  "project_info": {
+    "project_number": "924243844446",
+    "project_id": "project-1217141795685443743"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:924243844446:android:6ab0e3b29bdd50ad",
+        "android_client_info": {
+          "package_name": "com.lmntrx.android.nihal.googlesignin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "924243844446-qo478greh4bcg56tnd09jc0us5mtigv3.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "924243844446-5nekcbm1pj95kn4t4ng3htkv00orrr1b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lmntrx.android.nihal.googlesignin",
+            "certificate_hash": "21b15c3d63947e00c0ef43987ac0a81618ba4340"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9lAvjkLdj_P3O9Uyp7xJw0s4BITSU1s4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:924243844446:android:dcd520072a4127ef",
+        "android_client_info": {
+          "package_name": "com.amaro.amaro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "924243844446-ikhrdn0c30kuo0lbnm3vdnk88va3rrku.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.amaro.amaro",
+            "certificate_hash": "21b15c3d63947e00c0ef43987ac0a81618ba4340"
+          }
+        },
+        {
+          "client_id": "924243844446-qo478greh4bcg56tnd09jc0us5mtigv3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9lAvjkLdj_P3O9Uyp7xJw0s4BITSU1s4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

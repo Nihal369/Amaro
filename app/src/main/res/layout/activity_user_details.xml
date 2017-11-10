@@ -36,6 +36,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
+        android:id="@+id/fullNameEditText"
         android:layout_width="match_parent"
         android:layout_height="43dp"
         android:layout_marginStart="16dp"
@@ -60,8 +61,9 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <DatePicker
+        android:id="@+id/datePicker"
         android:layout_width="wrap_content"
-        android:layout_height="150dp"
+        android:layout_height="160dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="300dp"
         android:calendarViewShown="false"
@@ -72,25 +74,30 @@
     </DatePicker>
 
     <RadioGroup
+        android:id="@+id/radioGroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="459dp"
+        android:layout_marginTop="468dp"
         android:orientation="horizontal"
-        >
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <RadioButton
+            android:id="@+id/maleRadio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/Male"
-            android:layout_marginStart="16dp"/>
+            android:layout_marginStart="16dp"
+            android:checked="true"
+            android:text="@string/Male" />
 
         <RadioButton
+            android:id="@+id/femaleRadio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
-            android:text="@string/Female"
-            android:layout_marginStart="16dp"/>
+            android:layout_marginStart="16dp"
+            android:text="@string/Female" />
 
     </RadioGroup>
 

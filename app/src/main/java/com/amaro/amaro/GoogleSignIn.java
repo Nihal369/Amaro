@@ -26,6 +26,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
+import java.sql.Date;
+
 public class GoogleSignIn extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
 
     SignInButton googleSignInButton;
@@ -33,6 +35,9 @@ public class GoogleSignIn extends AppCompatActivity implements GoogleApiClient.O
     private static final int RC_SIGN_IN=2;
     GoogleApiClient mGoogleApiClient;
     FirebaseAuth.AuthStateListener mAuthListener;
+
+
+    static String fullName,phoneNumber,email;
 
     @Override
     protected void onStart() {
@@ -118,8 +123,15 @@ public class GoogleSignIn extends AppCompatActivity implements GoogleApiClient.O
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information;
                             FirebaseUser user = firebaseAuth.getCurrentUser();
-                            Toast.makeText(GoogleSignIn.this, "Sign In Success :)", Toast.LENGTH_SHORT).show();
-                            //updateUI(user);
+
+                            assert user != null;
+                            fullName=user.getDisplayName();
+                            phoneNumber=user.getPhoneNumber();
+                            email=user.getEmail();
+
+                            Intent menuIntent = new Intent(GoogleSignIn.this, UserDetails.class);
+                            startActivity(menuIntent);
+                            finish();
                         } else {
                             // If sign in fails, display a message to the user.
                             Toast.makeText(GoogleSignIn.this, "Authentication failed.",
@@ -129,8 +141,24 @@ public class GoogleSignIn extends AppCompatActivity implements GoogleApiClient.O
                 });
     }
 
+    public static String getFullName()
+    {
+        return fullName;
+    }
+
+    public static String getPhoneNumber()
+    {
+        return phoneNumber;
+    }
+
+    public static String getEmail()
+    {
+        return email;
+    }
+
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 
     }
+
 }

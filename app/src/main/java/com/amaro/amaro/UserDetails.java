@@ -47,7 +47,12 @@ public class UserDetails extends AppCompatActivity {
         datePicker=findViewById(R.id.datePicker);
         radioGroup=findViewById(R.id.radioGroup);
 
-        Picasso.with(this).load(GoogleSignIn.getProfilePicUrl()).into(profilePic);
+        Picasso.with(this).
+                load(GoogleSignIn.getProfilePicUrl())
+                .placeholder(R.drawable.profpic)
+                .error(R.drawable.profpic)
+                .transform(new CircleTransform())
+                .into(profilePic);
     }
 
     public void OnClick(View view) throws ParseException {

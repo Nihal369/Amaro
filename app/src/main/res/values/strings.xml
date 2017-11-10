@@ -8,4 +8,7 @@
     <string name="Male">Male</string>
     <string name="Female">Female</string>
     <string name="phone_number">Phone Number</string>
+    <string name="phone_number_hint">Your phone number goes here</string>
+    <string name="otp">OTP</string>
+    <string name="otp_hint">OTP goes here</string>
 </resources>

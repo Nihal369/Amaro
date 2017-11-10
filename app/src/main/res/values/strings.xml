@@ -4,4 +4,7 @@
     <string name="profile_pic">Profile pic</string>
     <string name="full_name">Full Name</string>
     <string name="full_name_hint">Your full name goes here</string>
+    <string name="Birthday">Birthday</string>
+    <string name="Male">Male</string>
+    <string name="Female">Female</string>
 </resources>

@@ -26,7 +26,6 @@ public class UserDetails extends AppCompatActivity {
 
     int day,month,year;
     String dateString;
-    static Date date;
     static String gender;
 
     @Override

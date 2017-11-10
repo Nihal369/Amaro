@@ -7,4 +7,5 @@
     <string name="Birthday">Birthday</string>
     <string name="Male">Male</string>
     <string name="Female">Female</string>
+    <string name="phone_number">Phone Number</string>
 </resources>

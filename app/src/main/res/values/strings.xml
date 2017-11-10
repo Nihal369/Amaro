@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Amaro</string>
+    <string name="continue_string">CONTINUE</string>
+    <string name="profile_pic">Profile pic</string>
+    <string name="full_name">Full Name</string>
+    <string name="full_name_hint">Your full name goes here</string>
 </resources>

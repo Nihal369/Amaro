@@ -6,7 +6,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioGroup;
+
+import com.squareup.picasso.Picasso;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -17,6 +20,8 @@ public class UserDetails extends AppCompatActivity {
 
     DatePicker datePicker;
     RadioGroup radioGroup;
+    ImageView profilePic;
+    EditText fullNameEditText;
 
 
     int day,month,year;
@@ -29,7 +34,10 @@ public class UserDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_details);
 
-        EditText fullNameEditText=(EditText)findViewById(R.id.fullNameEditText);
+        fullNameEditText= findViewById(R.id.fullNameEditText);
+        profilePic=findViewById(R.id.profilePic);
+
+
         String fullName=GoogleSignIn.getFullName();
         if(fullName!=null)
         {
@@ -38,6 +46,8 @@ public class UserDetails extends AppCompatActivity {
 
         datePicker=findViewById(R.id.datePicker);
         radioGroup=findViewById(R.id.radioGroup);
+
+        Picasso.with(this).load(GoogleSignIn.getProfilePicUrl()).into(profilePic);
     }
 
     public void OnClick(View view) throws ParseException {

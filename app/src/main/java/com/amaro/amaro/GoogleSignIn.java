@@ -1,6 +1,7 @@
 package com.amaro.amaro;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -26,6 +27,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
+import java.net.URL;
 import java.sql.Date;
 
 public class GoogleSignIn extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
@@ -38,6 +40,7 @@ public class GoogleSignIn extends AppCompatActivity implements GoogleApiClient.O
 
 
     static String fullName,phoneNumber,email;
+    static Uri profilePicUrl;
 
     @Override
     protected void onStart() {
@@ -128,6 +131,7 @@ public class GoogleSignIn extends AppCompatActivity implements GoogleApiClient.O
                             fullName=user.getDisplayName();
                             phoneNumber=user.getPhoneNumber();
                             email=user.getEmail();
+                            profilePicUrl=user.getPhotoUrl();
 
                             Intent menuIntent = new Intent(GoogleSignIn.this, UserDetails.class);
                             startActivity(menuIntent);
@@ -154,6 +158,11 @@ public class GoogleSignIn extends AppCompatActivity implements GoogleApiClient.O
     public static String getEmail()
     {
         return email;
+    }
+
+    public static Uri getProfilePicUrl()
+    {
+        return profilePicUrl;
     }
 
     @Override

@@ -152,7 +152,7 @@ public class GoogleSignIn extends AppCompatActivity implements GoogleApiClient.O
 
     public static String getPhoneNumber()
     {
-        return phoneNumber;
+        return "+91"+phoneNumber;
     }
 
     public static String getEmail()
@@ -163,6 +163,11 @@ public class GoogleSignIn extends AppCompatActivity implements GoogleApiClient.O
     public static Uri getProfilePicUrl()
     {
         return profilePicUrl;
+    }
+
+    public static void setPhoneNumber(String number)
+    {
+        phoneNumber=number;
     }
 
     @Override

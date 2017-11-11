@@ -62,6 +62,8 @@ public class GoogleSignIn extends AppCompatActivity implements GoogleApiClient.O
                 if(firebaseAuth.getCurrentUser() != null)
                 {
                     //User has already logged in,Jump to Appoinment activity
+                    startActivity(new Intent(GoogleSignIn.this,Appoinments.class));
+                    finish();
                 }
             }
         };

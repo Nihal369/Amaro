@@ -12,4 +12,5 @@
     <string name="otp">OTP</string>
     <string name="otp_hint">OTP goes here</string>
     <string name="verify">VERIFY</string>
+    <string name="book">BOOK</string>
 </resources>

@@ -22,4 +22,12 @@
     <string name="physician">Physician</string>
     <string name="neurologist">Neurologist</string>
     <string name="oncologist">Oncologist</string>
+    <string name="nov_11">Nov 11</string>
+    <string name="ten">10:00</string>
+    <string name="eleven">11:00</string>
+    <string name="twelve">12:00</string>
+    <string name="fourteen">14:00</string>
+    <string name="fifteen">15:00</string>
+    <string name="sixteen">16:00</string>
+
 </resources>

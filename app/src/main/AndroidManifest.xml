@@ -26,7 +26,8 @@
         <activity android:name=".PhoneNumber" />
         <activity android:name=".OTP" />
         <activity android:name=".Appoinments" />
-        <activity android:name=".DoctorList"></activity>
+        <activity android:name=".DoctorList" />
+        <activity android:name=".DoctorPage"></activity>
     </application>
 
 </manifest>

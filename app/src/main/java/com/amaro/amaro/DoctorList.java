@@ -1,7 +1,9 @@
 package com.amaro.amaro;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.squareup.picasso.Picasso;
@@ -40,5 +42,12 @@ public class DoctorList extends AppCompatActivity {
                 .error(R.drawable.profpic)
                 .transform(new CircleTransform())
                 .into(doctorImage3);
+    }
+
+    public void goToDoctorPage(View view)
+    {
+        Intent intent=new Intent(DoctorList.this,DoctorPage.class);
+        intent.putExtra("tag",view.getTag().toString());
+        startActivity(intent);
     }
 }

@@ -14,4 +14,12 @@
     <string name="verify">VERIFY</string>
     <string name="book">BOOK APPOINTMENT</string>
     <string name="appoinment">APPOINTMENTS:0</string>
+    <string name="doctor">Doctor</string>
+    <string name="tony_stark">Dr.Tony Stark</string>
+    <string name="doc1">Dr. Steve Becker</string>
+    <string name="doc2">Dr. Sophia Aiden</string>
+    <string name="doc3">Dr. Allison Reed</string>
+    <string name="physician">Physician</string>
+    <string name="neurologist">Neurologist</string>
+    <string name="oncologist">Oncologist</string>
 </resources>

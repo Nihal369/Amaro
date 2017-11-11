@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -52,9 +53,8 @@ public class Appoinments extends AppCompatActivity {
     }
 
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-
-    }
+   public void moveToDoctorList(View v)
+   {
+       startActivity(new Intent(Appoinments.this,DoctorList.class));
+   }
 }

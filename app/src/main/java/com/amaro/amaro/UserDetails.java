@@ -1,5 +1,6 @@
 package com.amaro.amaro;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,6 +18,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class UserDetails extends AppCompatActivity {
+
 
     DatePicker datePicker;
     RadioGroup radioGroup;
@@ -72,4 +74,5 @@ public class UserDetails extends AppCompatActivity {
        Intent intent=new Intent(UserDetails.this,PhoneNumber.class);
        startActivity(intent);
     }
+
 }

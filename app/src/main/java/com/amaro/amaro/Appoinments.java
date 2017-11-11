@@ -32,6 +32,7 @@ public class Appoinments extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_appoinments);
 
+
         fullName=LocalDB.getFullName();
         email=LocalDB.getEmail();
         phoneNumber=LocalDB.getEmail();

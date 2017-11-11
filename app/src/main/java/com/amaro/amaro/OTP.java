@@ -11,12 +11,16 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseException;
+import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
 
+import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
 import static com.amaro.amaro.GoogleSignIn.phoneNumber;
@@ -78,10 +82,22 @@ public class OTP extends AppCompatActivity {
         PhoneAuthCredential credential = PhoneAuthProvider.getCredential(mVerificationId,OTPNumber);
         // [END verify_with_code]
         signInWithPhoneAuthCredential(credential);
-
     }
+    FirebaseAuth.AuthStateListener mAuthListener;
 
-    private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
+    private void signInWithPhoneAuthCredential(final PhoneAuthCredential credential) {
+
+        FirebaseAuth firebaseAuth=FirebaseAuth.getInstance();
+        firebaseAuth.addAuthStateListener(mAuthListener);
+        mAuthListener=new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                if (firebaseAuth.getCurrentUser() != null) {
+                    firebaseAuth.getCurrentUser().linkWithCredential(credential);
+                }
+            }
+        };
+
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override

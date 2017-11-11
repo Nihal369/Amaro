@@ -63,7 +63,7 @@ public class OTP extends AppCompatActivity {
         };
 
         PhoneAuthProvider.getInstance().verifyPhoneNumber(
-                GoogleSignIn.getPhoneNumber(),
+                LocalDB.getPhoneNumber(),
                 60,
                 java.util.concurrent.TimeUnit.SECONDS,
                 OTP.this,

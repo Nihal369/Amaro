@@ -63,15 +63,11 @@ public class GoogleSignIn extends AppCompatActivity implements GoogleApiClient.O
                 {
                     //User has already logged in,Jump to Appointment activity
                     FirebaseUser user=firebaseAuth.getCurrentUser();
-                    fullName=user.getDisplayName();
-                    phoneNumber=user.getPhoneNumber();
-                    email=user.getEmail();
-                    profilePicUrl=user.getPhotoUrl();
+                    LocalDB.setFullName(user.getDisplayName());
+                    LocalDB.setEmail(user.getEmail());
+                    LocalDB.setPhoneNumber(user.getPhoneNumber());
+                    LocalDB.setProfilePicUri(user.getPhotoUrl());
                     Intent intent=new Intent(GoogleSignIn.this,Appoinments.class);
-                    intent.putExtra("fullName",fullName);
-                    intent.putExtra("email",email);
-                    intent.putExtra("phoneNumber",phoneNumber);
-                    intent.putExtra("profilePicUrl",profilePicUrl.toString());
                     startActivity(intent);
                     finish();
                 }
@@ -140,10 +136,10 @@ public class GoogleSignIn extends AppCompatActivity implements GoogleApiClient.O
                             FirebaseUser user = firebaseAuth.getCurrentUser();
 
                             assert user != null;
-                            fullName=user.getDisplayName();
-                            phoneNumber=user.getPhoneNumber();
-                            email=user.getEmail();
-                            profilePicUrl=user.getPhotoUrl();
+                            LocalDB.setFullName(user.getDisplayName());
+                            LocalDB.setEmail(user.getEmail());
+                            LocalDB.setPhoneNumber(user.getPhoneNumber());
+                            LocalDB.setProfilePicUri(user.getPhotoUrl());
 
                             Intent menuIntent = new Intent(GoogleSignIn.this, UserDetails.class);
                             startActivity(menuIntent);
@@ -155,31 +151,6 @@ public class GoogleSignIn extends AppCompatActivity implements GoogleApiClient.O
                         }
                     }
                 });
-    }
-
-    public static String getFullName()
-    {
-        return fullName;
-    }
-
-    public static String getPhoneNumber()
-    {
-        return "+91"+phoneNumber;
-    }
-
-    public static String getEmail()
-    {
-        return email;
-    }
-
-    public static Uri getProfilePicUrl()
-    {
-        return profilePicUrl;
-    }
-
-    public static void setPhoneNumber(String number)
-    {
-        phoneNumber=number;
     }
 
     @Override

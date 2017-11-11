@@ -21,7 +21,7 @@ public class PhoneNumber extends AppCompatActivity {
     public void goToOtp(View view)
     {
         phoneNumber=phoneNumberForm.getText().toString();
-        GoogleSignIn.setPhoneNumber(phoneNumber);
+        LocalDB.setPhoneNumber(phoneNumber);
         Intent intent=new Intent(this,OTP.class);
         startActivity(intent);
     }

@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -22,6 +23,8 @@ public class Appoinments extends AppCompatActivity {
     TextView fullNameTextView, AppointmentTextView;
     String fullName,email,phoneNumber;
     Uri profilePicUrl;
+    FirebaseAuth firebaseAuth;
+    FirebaseAuth.AuthStateListener mAuthListener;
 
 
     @Override
@@ -29,12 +32,10 @@ public class Appoinments extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_appoinments);
 
-        Bundle bundle = getIntent().getExtras();
-        assert bundle != null;
-        fullName = bundle.getString("fullName");
-        email=bundle.getString("email");
-        phoneNumber=bundle.getString("phoneNumber");
-        profilePicUrl= Uri.parse(bundle.getString("profilePicUrl"));
+        fullName=LocalDB.getFullName();
+        email=LocalDB.getEmail();
+        phoneNumber=LocalDB.getEmail();
+        profilePicUrl=LocalDB.getProfilePicUri();
 
 
         profilePic=findViewById(R.id.appoinmentProfilePic);

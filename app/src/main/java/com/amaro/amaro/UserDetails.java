@@ -39,7 +39,7 @@ public class UserDetails extends AppCompatActivity {
         profilePic=findViewById(R.id.profilePic);
 
 
-        String fullName=GoogleSignIn.getFullName();
+        String fullName=LocalDB.getFullName();
         if(fullName!=null)
         {
             fullNameEditText.setText(fullName);
@@ -49,7 +49,7 @@ public class UserDetails extends AppCompatActivity {
         radioGroup=findViewById(R.id.radioGroup);
 
         Picasso.with(this).
-                load(GoogleSignIn.getProfilePicUrl())
+                load(LocalDB.getProfilePicUri())
                 .placeholder(R.drawable.profpic)
                 .error(R.drawable.profpic)
                 .transform(new CircleTransform())

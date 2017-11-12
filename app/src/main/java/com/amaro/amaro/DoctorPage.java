@@ -161,8 +161,8 @@ public class DoctorPage extends AppCompatActivity {
                        {
                            case R.id.tenCard1:
                                //Make appointment
-                               AppointmentQueue.writeAppointmentToFirebase(getDocById(identificationTag)+ " 10:00 " +" "+dayOfMonth[0]+" "
-                                       +monthName[0]+" "+year[0]);
+                               AppointmentQueue.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[0]),monthName[0]
+                                       ,"10:00",String.valueOf(year[0]));
                                Toast.makeText(DoctorPage.this,
                                        "Appointment made for "+getDocById(identificationTag)+" at 10:00 on "+ dayOfMonth[0]+" "+monthName[0]+" "+year[0],
                                        Toast.LENGTH_LONG).show();
@@ -170,8 +170,8 @@ public class DoctorPage extends AppCompatActivity {
 
                            case R.id.elevenCard1:
                                //Make appointment
-                               AppointmentQueue.writeAppointmentToFirebase(getDocById(identificationTag)+ " 11:00 " +" "+dayOfMonth[0]+" "
-                                       +monthName[0]+" "+year[0]);
+                               AppointmentQueue.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[0]),monthName[0]
+                                       ,"11:00",String.valueOf(year[0]));
                                Toast.makeText(DoctorPage.this,
                                        "Appointment made for "+getDocById(identificationTag)+" at 11:00 on "+ dayOfMonth[0]+" "+monthName[0]+" "+year[0],
                                        Toast.LENGTH_LONG).show();
@@ -179,8 +179,8 @@ public class DoctorPage extends AppCompatActivity {
 
                            case R.id.twelveCard1:
                                //Make appointment
-                               AppointmentQueue.writeAppointmentToFirebase(getDocById(identificationTag)+ " 12:00 " +" "+dayOfMonth[0]+" "
-                                       +monthName[0]+" "+year[0]);
+                               AppointmentQueue.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[0]),monthName[0]
+                                       ,"12:00",String.valueOf(year[0]));
                                Toast.makeText(DoctorPage.this,
                                        "Appointment made for "+getDocById(identificationTag)+" at 12:00 on "+ dayOfMonth[0]+" "+monthName[0]+" "+year[0],
                                        Toast.LENGTH_LONG).show();
@@ -188,8 +188,8 @@ public class DoctorPage extends AppCompatActivity {
 
                            case R.id.fourteenCard1:
                                //Make appointment
-                               AppointmentQueue.writeAppointmentToFirebase(getDocById(identificationTag)+ " 14:00 " +" "+dayOfMonth[0]+" "
-                                       +monthName[0]+" "+year[0]);
+                               AppointmentQueue.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[0]),monthName[0]
+                                       ,"14:00",String.valueOf(year[0]));
                                Toast.makeText(DoctorPage.this,
                                        "Appointment made for "+getDocById(identificationTag)+" at 14:00 on "+ dayOfMonth[0]+" "+monthName[0]+" "+year[0],
                                        Toast.LENGTH_LONG).show();
@@ -197,8 +197,8 @@ public class DoctorPage extends AppCompatActivity {
 
                            case R.id.fifteenCard1:
                                //Make appointment
-                               AppointmentQueue.writeAppointmentToFirebase(getDocById(identificationTag)+ " 15:00 " +" "+dayOfMonth[0]+" "
-                                       +monthName[0]+" "+year[0]);
+                               AppointmentQueue.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[0]),monthName[0]
+                                       ,"15:00",String.valueOf(year[0]));
                                Toast.makeText(DoctorPage.this,
                                        "Appointment made for "+getDocById(identificationTag)+" at 15:00 on "+ dayOfMonth[0]+" "+monthName[0]+" "+year[0],
                                        Toast.LENGTH_LONG).show();
@@ -206,8 +206,8 @@ public class DoctorPage extends AppCompatActivity {
 
                            case R.id.sixteenCard1:
                                //Make appointment
-                               AppointmentQueue.writeAppointmentToFirebase(getDocById(identificationTag)+ " 16:00 " +" "+dayOfMonth[0]+" "
-                                       +monthName[0]+" "+year[0]);
+                               AppointmentQueue.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[0]),monthName[0]
+                                       ,"16:00",String.valueOf(year[0]));
                                Toast.makeText(DoctorPage.this,
                                        "Appointment made for "+getDocById(identificationTag)+" at 16:00 on "+ dayOfMonth[0]+" "+monthName[0]+" "+year[0],
                                        Toast.LENGTH_LONG).show();
@@ -215,8 +215,8 @@ public class DoctorPage extends AppCompatActivity {
 
                            case R.id.tenCard2:
                                //Make appointment
-                               AppointmentQueue.writeAppointmentToFirebase(getDocById(identificationTag)+ " 10:00 " +" "+dayOfMonth[1]+" "
-                                       +monthName[1]+" "+year[1]);
+                               AppointmentQueue.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[1]),monthName[1]
+                                       ,"10:00",String.valueOf(year[1]));
                                Toast.makeText(DoctorPage.this,
                                        "Appointment made for "+getDocById(identificationTag)+" at 10:00 on "+ dayOfMonth[1]+" "+monthName[1]+" "+year[1],
                                        Toast.LENGTH_LONG).show();
@@ -224,8 +224,8 @@ public class DoctorPage extends AppCompatActivity {
 
                            case R.id.elevenCard2:
                                //Make appointment
-                               AppointmentQueue.writeAppointmentToFirebase(getDocById(identificationTag)+ " 11:00 " +" "+dayOfMonth[1]+" "
-                                       +monthName[1]+" "+year[1]);
+                               AppointmentQueue.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[1]),monthName[1]
+                                       ,"11:00",String.valueOf(year[1]));
                                Toast.makeText(DoctorPage.this,
                                        "Appointment made for "+getDocById(identificationTag)+" at 11:00 on "+ dayOfMonth[1]+" "+monthName[1]+" "+year[1],
                                        Toast.LENGTH_LONG).show();
@@ -233,8 +233,8 @@ public class DoctorPage extends AppCompatActivity {
 
                            case R.id.twelveCard2:
                                //Make appointment
-                               AppointmentQueue.writeAppointmentToFirebase(getDocById(identificationTag)+ " 12:00 " +" "+dayOfMonth[1]+" "
-                                       +monthName[1]+" "+year[1]);
+                               AppointmentQueue.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[1]),monthName[1]
+                                       ,"12:00",String.valueOf(year[1]));
                                Toast.makeText(DoctorPage.this,
                                        "Appointment made for "+getDocById(identificationTag)+" at 12:00 on "+ dayOfMonth[1]+" "+monthName[1]+" "+year[1],
                                        Toast.LENGTH_LONG).show();
@@ -242,8 +242,8 @@ public class DoctorPage extends AppCompatActivity {
 
                            case R.id.fourteenCard2:
                                //Make appointment
-                               AppointmentQueue.writeAppointmentToFirebase(getDocById(identificationTag)+ " 14:00 " +" "+dayOfMonth[1]+" "
-                                       +monthName[1]+" "+year[1]);
+                               AppointmentQueue.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[1]),monthName[1]
+                                       ,"14:00",String.valueOf(year[1]));
                                Toast.makeText(DoctorPage.this,
                                        "Appointment made for "+getDocById(identificationTag)+" at 14:00 on "+ dayOfMonth[1]+" "+monthName[1]+" "+year[1],
                                        Toast.LENGTH_LONG).show();
@@ -251,8 +251,8 @@ public class DoctorPage extends AppCompatActivity {
 
                            case R.id.fifteenCard2:
                                //Make appointment
-                               AppointmentQueue.writeAppointmentToFirebase(getDocById(identificationTag)+ " 15:00 " +" "+dayOfMonth[1]+" "
-                                       +monthName[1]+" "+year[1]);
+                               AppointmentQueue.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[1]),monthName[1]
+                                       ,"15:00",String.valueOf(year[1]));
                                Toast.makeText(DoctorPage.this,
                                        "Appointment made for "+getDocById(identificationTag)+" at 15:00 on "+ dayOfMonth[1]+" "+monthName[1]+" "+year[1],
                                        Toast.LENGTH_LONG).show();
@@ -260,8 +260,8 @@ public class DoctorPage extends AppCompatActivity {
 
                            case R.id.sixteenCard2:
                                //Make appointment
-                               AppointmentQueue.writeAppointmentToFirebase(getDocById(identificationTag)+ " 16:00 " +" "+dayOfMonth[1]+" "
-                                       +monthName[1]+" "+year[1]);
+                               AppointmentQueue.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[1]),monthName[1]
+                                       ,"16:00",String.valueOf(year[1]));
                                Toast.makeText(DoctorPage.this,
                                        "Appointment made for "+getDocById(identificationTag)+" at 16:00 on "+ dayOfMonth[1]+" "+monthName[1]+" "+year[1],
                                        Toast.LENGTH_LONG).show();
@@ -269,8 +269,8 @@ public class DoctorPage extends AppCompatActivity {
 
                            case R.id.tenCard3:
                                //Make appointment
-                               AppointmentQueue.writeAppointmentToFirebase(getDocById(identificationTag)+ " 10:00 " +" "+dayOfMonth[2]+" "
-                                       +monthName[2]+" "+year[2]);
+                               AppointmentQueue.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[2]),monthName[2]
+                                       ,"10:00",String.valueOf(year[2]));
                                Toast.makeText(DoctorPage.this,
                                        "Appointment made for "+getDocById(identificationTag)+" at 10:00 on "+ dayOfMonth[2]+" "+monthName[2]+" "+year[2],
                                        Toast.LENGTH_LONG).show();
@@ -278,8 +278,8 @@ public class DoctorPage extends AppCompatActivity {
 
                            case R.id.elevenCard3:
                                //Make appointment
-                               AppointmentQueue.writeAppointmentToFirebase(getDocById(identificationTag)+ " 11:00 " +" "+dayOfMonth[2]+" "
-                                       +monthName[2]+" "+year[2]);
+                               AppointmentQueue.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[2]),monthName[2]
+                                       ,"11:00",String.valueOf(year[2]));
                                Toast.makeText(DoctorPage.this,
                                        "Appointment made for "+getDocById(identificationTag)+" at 11:00 on "+ dayOfMonth[2]+" "+monthName[2]+" "+year[2],
                                        Toast.LENGTH_LONG).show();
@@ -287,8 +287,8 @@ public class DoctorPage extends AppCompatActivity {
 
                            case R.id.twelveCard3:
                                //Make appointment
-                               AppointmentQueue.writeAppointmentToFirebase(getDocById(identificationTag)+ " 12:00 " +" "+dayOfMonth[2]+" "
-                                       +monthName[2]+" "+year[2]);
+                               AppointmentQueue.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[2]),monthName[2]
+                                       ,"12:00",String.valueOf(year[2]));
                                Toast.makeText(DoctorPage.this,
                                        "Appointment made for "+getDocById(identificationTag)+" at 12:00 on "+ dayOfMonth[2]+" "+monthName[2]+" "+year[2],
                                        Toast.LENGTH_LONG).show();
@@ -296,8 +296,8 @@ public class DoctorPage extends AppCompatActivity {
 
                            case R.id.fourteenCard3:
                                //Make appointment
-                               AppointmentQueue.writeAppointmentToFirebase(getDocById(identificationTag)+ " 14:00 " +" "+dayOfMonth[2]+" "
-                                       +monthName[2]+" "+year[2]);
+                               AppointmentQueue.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[2]),monthName[2]
+                                       ,"14:00",String.valueOf(year[2]));
                                Toast.makeText(DoctorPage.this,
                                        "Appointment made for "+getDocById(identificationTag)+" at 14:00 on "+ dayOfMonth[2]+" "+monthName[2]+" "+year[2],
                                        Toast.LENGTH_LONG).show();
@@ -305,8 +305,8 @@ public class DoctorPage extends AppCompatActivity {
 
                            case R.id.fifteenCard3:
                                //Make appointment
-                               AppointmentQueue.writeAppointmentToFirebase(getDocById(identificationTag)+ " 15:00 " +" "+dayOfMonth[2]+" "
-                                       +monthName[2]+" "+year[2]);
+                               AppointmentQueue.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[2]),monthName[2]
+                                       ,"15:00",String.valueOf(year[2]));
                                Toast.makeText(DoctorPage.this,
                                        "Appointment made for "+getDocById(identificationTag)+" at 15:00 on "+ dayOfMonth[2]+" "+monthName[2]+" "+year[2],
                                        Toast.LENGTH_LONG).show();
@@ -314,8 +314,8 @@ public class DoctorPage extends AppCompatActivity {
 
                            case R.id.sixteenCard3:
                                //Make appointment
-                               AppointmentQueue.writeAppointmentToFirebase(getDocById(identificationTag)+ " 16:00 " +" "+dayOfMonth[2]+" "
-                                       +monthName[2]+" "+year[2]);
+                               AppointmentQueue.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[2]),monthName[2]
+                                       ,"16:00",String.valueOf(year[2]));
                                Toast.makeText(DoctorPage.this,
                                        "Appointment made for "+getDocById(identificationTag)+" at 16:00 on "+ dayOfMonth[2]+" "+monthName[2]+" "+year[2],
                                        Toast.LENGTH_LONG).show();
@@ -323,8 +323,8 @@ public class DoctorPage extends AppCompatActivity {
 
                            case R.id.tenCard4:
                                //Make appointment
-                               AppointmentQueue.writeAppointmentToFirebase(getDocById(identificationTag)+ " 10:00 " +" "+dayOfMonth[3]+" "
-                                       +monthName[3]+" "+year[3]);
+                               AppointmentQueue.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[3]),monthName[3]
+                                       ,"10:00",String.valueOf(year[3]));
                                Toast.makeText(DoctorPage.this,
                                        "Appointment made for "+getDocById(identificationTag)+" at 10:00 on "+ dayOfMonth[3]+" "+monthName[3]+" "+year[3],
                                        Toast.LENGTH_LONG).show();
@@ -332,8 +332,8 @@ public class DoctorPage extends AppCompatActivity {
 
                            case R.id.elevenCard4:
                                //Make appointment
-                               AppointmentQueue.writeAppointmentToFirebase(getDocById(identificationTag)+ " 11:00 " +" "+dayOfMonth[3]+" "
-                                       +monthName[3]+" "+year[3]);
+                               AppointmentQueue.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[3]),monthName[3]
+                                       ,"11:00",String.valueOf(year[3]));
                                Toast.makeText(DoctorPage.this,
                                        "Appointment made for "+getDocById(identificationTag)+" at 11:00 on "+ dayOfMonth[3]+" "+monthName[3]+" "+year[3],
                                        Toast.LENGTH_LONG).show();
@@ -341,8 +341,8 @@ public class DoctorPage extends AppCompatActivity {
 
                            case R.id.twelveCard4:
                                //Make appointment
-                               AppointmentQueue.writeAppointmentToFirebase(getDocById(identificationTag)+ " 12:00 " +" "+dayOfMonth[3]+" "
-                                       +monthName[3]+" "+year[3]);
+                               AppointmentQueue.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[3]),monthName[3]
+                                       ,"12:00",String.valueOf(year[3]));
                                Toast.makeText(DoctorPage.this,
                                        "Appointment made for "+getDocById(identificationTag)+" at 12:00 on "+ dayOfMonth[3]+" "+monthName[3]+" "+year[3],
                                        Toast.LENGTH_LONG).show();
@@ -350,8 +350,8 @@ public class DoctorPage extends AppCompatActivity {
 
                            case R.id.fourteenCard4:
                                //Make appointment
-                               AppointmentQueue.writeAppointmentToFirebase(getDocById(identificationTag)+ " 14:00 " +" "+dayOfMonth[3]+" "
-                                       +monthName[3]+" "+year[3]);
+                               AppointmentQueue.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[3]),monthName[3]
+                                       ,"14:00",String.valueOf(year[3]));
                                Toast.makeText(DoctorPage.this,
                                        "Appointment made for "+getDocById(identificationTag)+" at 14:00 on "+ dayOfMonth[3]+" "+monthName[3]+" "+year[3],
                                        Toast.LENGTH_LONG).show();
@@ -359,8 +359,8 @@ public class DoctorPage extends AppCompatActivity {
 
                            case R.id.fifteenCard4:
                                //Make appointment
-                               AppointmentQueue.writeAppointmentToFirebase(getDocById(identificationTag)+ " 15:00 " +" "+dayOfMonth[3]+" "
-                                       +monthName[3]+" "+year[3]);
+                               AppointmentQueue.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[3]),monthName[3]
+                                       ,"15:00",String.valueOf(year[3]));
                                Toast.makeText(DoctorPage.this,
                                        "Appointment made for "+getDocById(identificationTag)+" at 15:00 on "+ dayOfMonth[3]+" "+monthName[3]+" "+year[3],
                                        Toast.LENGTH_LONG).show();
@@ -368,8 +368,8 @@ public class DoctorPage extends AppCompatActivity {
 
                            case R.id.sixteenCard4:
                                //Make appointment
-                               AppointmentQueue.writeAppointmentToFirebase(getDocById(identificationTag)+ " 16:00 " +" "+dayOfMonth[3]+" "
-                               +monthName[3]+" "+year[3]);
+                               AppointmentQueue.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[3]),monthName[3]
+                                       ,"16:00",String.valueOf(year[3]));
                                Toast.makeText(DoctorPage.this,
                                        "Appointment made for "+getDocById(identificationTag)+" at 15:00 on "+ dayOfMonth[3]+" "+monthName[3]+" "+year[3],
                                        Toast.LENGTH_LONG).show();

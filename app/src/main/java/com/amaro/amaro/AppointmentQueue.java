@@ -17,7 +17,7 @@ import java.util.HashMap;
 
 class AppointmentQueue {
 
-    String appointment;
+    String doctorName,dayOfMonth,monthName,year,time;
     AppointmentQueue appointmentQueue;
     static  DatabaseReference mRootRef,userRef,nameRef;
     static ArrayList<AppointmentQueue> listOfAppointments;
@@ -28,20 +28,24 @@ class AppointmentQueue {
 
     }
 
-    public AppointmentQueue(String appointment)
+    public AppointmentQueue(String doctorName,String dayOfMonth,String monthName,String time,String year)
     {
-        this.appointment=appointment;
+        this.doctorName=doctorName;
+        this.dayOfMonth=dayOfMonth;
+        this.monthName=monthName;
+        this.time=time;
+        this.year=year;
     }
 
 
 
-    public static void writeAppointmentToFirebase(String appointmentDetails)
+    public static void writeAppointmentToFirebase(String doctorName,String dayOfMonth,String monthName,String time,String year)
     {
         mRootRef= FirebaseDatabase.getInstance().getReference();
         userRef=mRootRef.child("Users");
         nameRef=userRef.child(LocalDB.getFullName());
         String appointmentId = nameRef.push().getKey();
-        AppointmentQueue appointment=new AppointmentQueue(appointmentDetails);
+        AppointmentQueue appointment=new AppointmentQueue(doctorName,dayOfMonth,monthName,time,year);
         nameRef.child(appointmentId).setValue(appointment);
     }
 

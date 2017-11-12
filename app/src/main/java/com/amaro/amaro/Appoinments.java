@@ -52,6 +52,8 @@ public class Appoinments extends AppCompatActivity {
                 .into(profilePic);
 
         fullNameTextView.setText(fullName);
+
+        AppointmentQueue.getAppointmentFromFirebase();
     }
 
 

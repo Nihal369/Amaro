@@ -17,6 +17,7 @@
             >
 
             <ImageView
+                android:id="@+id/doctorPicLarge"
                 android:layout_width="match_parent"
                 android:layout_height="280dp"
                 android:background="@drawable/doc3"
@@ -25,6 +26,7 @@
         </android.support.v7.widget.CardView>
 
         <TextView
+            android:id="@+id/doctorName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -37,6 +39,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/doctorDepartment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"

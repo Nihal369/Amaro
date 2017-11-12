@@ -67,12 +67,10 @@ class AppointmentQueue {
                 for(String key:fireBaseMap.keySet())
                 {
                     listOfAppointments.add(fireBaseMap.get(key));
-
                 }
-
+                Log.i("NIHAL",listOfAppointments.toString());
                 Iterator iterator=listOfAppointments.iterator();
                 while (iterator.hasNext()) {
-                    Log.i("NIHAL", iterator.next().toString());
                     //APPLY REGEX AND PASS IT TO APPOINTMENTS.CLASS
                     String str = iterator.next().toString();
                     String stringToPass="";

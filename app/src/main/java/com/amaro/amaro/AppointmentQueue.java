@@ -58,7 +58,7 @@ class AppointmentQueue {
         nameRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-
+                listOfAppointments.clear();
                 fireBaseMap = (HashMap<String,AppointmentQueue>) dataSnapshot.getValue();
                 for(String key:fireBaseMap.keySet())
                 {

@@ -26,6 +26,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.net.URL;
 import java.sql.Date;
@@ -53,6 +54,8 @@ public class GoogleSignIn extends AppCompatActivity implements GoogleApiClient.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_google_sign_in);
 
+        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+        
         googleSignInButton = findViewById(R.id.googleSignInButton);
         FirebaseApp.initializeApp(this);
         firebaseAuth=FirebaseAuth.getInstance();

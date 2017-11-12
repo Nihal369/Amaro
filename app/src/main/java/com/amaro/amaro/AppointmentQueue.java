@@ -29,7 +29,6 @@ class AppointmentQueue {
 
     public static void writeAppointmentToFirebase(String appointmentDetails)
     {
-        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
         DatabaseReference mRootRef= FirebaseDatabase.getInstance().getReference();
         DatabaseReference userRef=mRootRef.child("Users");
         DatabaseReference nameRef=userRef.child(LocalDB.getFullName());

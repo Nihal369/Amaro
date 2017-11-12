@@ -8,6 +8,7 @@
     tools:context="com.amaro.amaro.Appoinments">
 
     <android.support.v7.widget.CardView
+        android:id="@+id/profileTitleCard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardBackgroundColor="@color/background">
@@ -16,11 +17,10 @@
             android:id="@+id/appoinmentProfilePic"
             android:layout_width="130dp"
             android:layout_height="130dp"
-            android:src="@drawable/profpic"
             android:layout_gravity="end"
             android:layout_margin="16dp"
             android:contentDescription="@string/profile_pic"
-            />
+            android:src="@drawable/profpic" />
 
         <TextView
             android:id="@+id/userNameTextView"
@@ -30,46 +30,86 @@
             android:layout_marginTop="32dp"
             android:fontFamily="monospace"
             android:text="@string/full_name"
-            android:textSize="24sp"
             android:textColor="#fff"
-             />
+            android:textSize="24sp" />
 
         <TextView
             android:id="@+id/appoinmentTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:layout_marginStart="24dp"
             android:layout_marginBottom="60dp"
+            android:layout_marginStart="24dp"
             android:fontFamily="monospace"
             android:text="@string/appoinment"
-            android:textSize="18sp"
             android:textColor="#e0e0e0"
-            />
+            android:textSize="18sp" />
 
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
+        android:id="@+id/bookAppoinmentCard"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:onClick="moveToDoctorList"
         app:cardBackgroundColor="@color/colorPrimaryDark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:onClick="moveToDoctorList"
-        android:id="@+id/bookAppoinmentCard"
-        >
+        app:layout_constraintStart_toStartOf="parent">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="monospace"
             android:text="@string/book"
             android:textColor="#fff"
-            android:layout_gravity="center"
-            android:textSize="20sp"
-            android:fontFamily="monospace"
-            />
+            android:textSize="20sp" />
 
     </android.support.v7.widget.CardView>
+
+    <ScrollView
+        android:layout_width="344dp"
+        android:layout_height="328dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toTopOf="@id/bookAppoinmentCard"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/profileTitleCard"
+        app:layout_constraintVertical_bias="0.481">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/verticalLayout"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                app:cardBackgroundColor="@color/background_dark"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:onClick="moveToDoctorList"
+
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="7 NOV ! 10:00 ! Dr. Steve Becker"
+                    android:textColor="#fff"
+                    android:layout_gravity="center"
+                    android:textSize="16sp"
+                    android:fontFamily="monospace"
+                    />
+
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+    </ScrollView>
 
 </android.support.constraint.ConstraintLayout>

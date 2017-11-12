@@ -2,6 +2,8 @@ package com.amaro.amaro;
 
 import android.content.SharedPreferences;
 import android.util.Log;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -11,6 +13,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
@@ -23,10 +26,6 @@ class AppointmentQueue {
     static ArrayList<AppointmentQueue> listOfAppointments;
     static Map<String, AppointmentQueue> fireBaseMap;
 
-    public AppointmentQueue()
-    {
-
-    }
 
     public AppointmentQueue(String doctorName,String dayOfMonth,String monthName,String time,String year)
     {
@@ -63,8 +62,13 @@ class AppointmentQueue {
                 for(String key:fireBaseMap.keySet())
                 {
                     listOfAppointments.add(fireBaseMap.get(key));
+
                 }
-                Log.i("NIHAL",listOfAppointments.toString());
+
+                Iterator iterator=listOfAppointments.iterator();
+                while (iterator.hasNext()) {
+                    Log.i("NIHAL", iterator.next().toString());
+                }
             }
 
             @Override

@@ -7,11 +7,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import java.util.Calendar;
 import java.util.Date;
 
 public class DoctorPage extends AppCompatActivity {
 
+    Bundle bundle;
     ImageView doctorImage;
     TextView doctorDepartment,doctorName,date1Text,date2Text,date3Text,date4Text;
     Calendar calendar;
@@ -19,7 +22,7 @@ public class DoctorPage extends AppCompatActivity {
     int[] month,dayOfMonth,dayOfWeek,year;
     int index;
     String[] monthName;
-    String date1,date2,date3,date4;
+    String date1,date2,date3,date4,identificationTag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,9 +38,9 @@ public class DoctorPage extends AppCompatActivity {
         doctorName=findViewById(R.id.doctorName);
         doctorDepartment=findViewById(R.id.doctorDepartment);
 
-        Bundle bundle = getIntent().getExtras();
+        bundle = getIntent().getExtras();
         assert bundle != null;
-        String identificationTag=bundle.getString("tag");
+        identificationTag=bundle.getString("tag");
 
         assert identificationTag != null;
         switch (identificationTag)
@@ -145,18 +148,198 @@ public class DoctorPage extends AppCompatActivity {
         }
     }
 
-    public void bookAppointment(View view)
+    public void bookAppointment(final View view)
     {
        new AlertDialog.Builder(this,R.style.MyDialogTheme)
                .setTitle("Confirm Appointment")
-               .setMessage("Please confirm your appointment with Dr Philips")
+               .setMessage("Are you sure you want to make the Appointment")
                .setIcon(R.drawable.alert)
                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                    @Override
                    public void onClick(DialogInterface dialogInterface, int i) {
+                       switch (view.getId())
+                       {
+                           case R.id.tenCard1:
+                               //Make appointment
+                               Toast.makeText(DoctorPage.this,
+                                       "Appointment made for "+getDocById(identificationTag)+" at 10:00 on "+ dayOfMonth[0]+" "+monthName[0]+year[0],
+                                       Toast.LENGTH_LONG).show();
+                               break;
 
+                           case R.id.elevenCard1:
+                               //Make appointment
+                               Toast.makeText(DoctorPage.this,
+                                       "Appointment made for "+getDocById(identificationTag)+" at 11:00 on "+ dayOfMonth[0]+" "+monthName[0]+year[0],
+                                       Toast.LENGTH_LONG).show();
+                               break;
+
+                           case R.id.twelveCard1:
+                               //Make appointment
+                               Toast.makeText(DoctorPage.this,
+                                       "Appointment made for "+getDocById(identificationTag)+" at 12:00 on "+ dayOfMonth[0]+" "+monthName[0]+year[0],
+                                       Toast.LENGTH_LONG).show();
+                               break;
+
+                           case R.id.fourteenCard1:
+                               //Make appointment
+                               Toast.makeText(DoctorPage.this,
+                                       "Appointment made for "+getDocById(identificationTag)+" at 14:00 on "+ dayOfMonth[0]+" "+monthName[0]+year[0],
+                                       Toast.LENGTH_LONG).show();
+                               break;
+
+                           case R.id.fifteenCard1:
+                               //Make appointment
+                               Toast.makeText(DoctorPage.this,
+                                       "Appointment made for "+getDocById(identificationTag)+" at 15:00 on "+ dayOfMonth[0]+" "+monthName[0]+year[0],
+                                       Toast.LENGTH_LONG).show();
+                               break;
+
+                           case R.id.sixteenCard1:
+                               //Make appointment
+                               Toast.makeText(DoctorPage.this,
+                                       "Appointment made for "+getDocById(identificationTag)+" at 16:00 on "+ dayOfMonth[0]+" "+monthName[0]+year[0],
+                                       Toast.LENGTH_LONG).show();
+                               break;
+
+                           case R.id.tenCard2:
+                               //Make appointment
+                               Toast.makeText(DoctorPage.this,
+                                       "Appointment made for "+getDocById(identificationTag)+" at 10:00 on "+ dayOfMonth[1]+" "+monthName[1]+year[1],
+                                       Toast.LENGTH_LONG).show();
+                               break;
+
+                           case R.id.elevenCard2:
+                               //Make appointment
+                               Toast.makeText(DoctorPage.this,
+                                       "Appointment made for "+getDocById(identificationTag)+" at 11:00 on "+ dayOfMonth[1]+" "+monthName[1]+year[1],
+                                       Toast.LENGTH_LONG).show();
+                               break;
+
+                           case R.id.twelveCard2:
+                               //Make appointment
+                               Toast.makeText(DoctorPage.this,
+                                       "Appointment made for "+getDocById(identificationTag)+" at 12:00 on "+ dayOfMonth[1]+" "+monthName[1]+year[1],
+                                       Toast.LENGTH_LONG).show();
+                               break;
+
+                           case R.id.fourteenCard2:
+                               //Make appointment
+                               Toast.makeText(DoctorPage.this,
+                                       "Appointment made for "+getDocById(identificationTag)+" at 14:00 on "+ dayOfMonth[1]+" "+monthName[1]+year[1],
+                                       Toast.LENGTH_LONG).show();
+                               break;
+
+                           case R.id.fifteenCard2:
+                               //Make appointment
+                               Toast.makeText(DoctorPage.this,
+                                       "Appointment made for "+getDocById(identificationTag)+" at 15:00 on "+ dayOfMonth[1]+" "+monthName[1]+year[1],
+                                       Toast.LENGTH_LONG).show();
+                               break;
+
+                           case R.id.sixteenCard2:
+                               //Make appointment
+                               Toast.makeText(DoctorPage.this,
+                                       "Appointment made for "+getDocById(identificationTag)+" at 16:00 on "+ dayOfMonth[1]+" "+monthName[1]+year[1],
+                                       Toast.LENGTH_LONG).show();
+                               break;
+
+                           case R.id.tenCard3:
+                               //Make appointment
+                               Toast.makeText(DoctorPage.this,
+                                       "Appointment made for "+getDocById(identificationTag)+" at 10:00 on "+ dayOfMonth[2]+" "+monthName[2]+year[2],
+                                       Toast.LENGTH_LONG).show();
+                               break;
+
+                           case R.id.elevenCard3:
+                               //Make appointment
+                               Toast.makeText(DoctorPage.this,
+                                       "Appointment made for "+getDocById(identificationTag)+" at 11:00 on "+ dayOfMonth[2]+" "+monthName[2]+year[2],
+                                       Toast.LENGTH_LONG).show();
+                               break;
+
+                           case R.id.twelveCard3:
+                               //Make appointment
+                               Toast.makeText(DoctorPage.this,
+                                       "Appointment made for "+getDocById(identificationTag)+" at 12:00 on "+ dayOfMonth[2]+" "+monthName[2]+year[2],
+                                       Toast.LENGTH_LONG).show();
+                               break;
+
+                           case R.id.fourteenCard3:
+                               //Make appointment
+                               Toast.makeText(DoctorPage.this,
+                                       "Appointment made for "+getDocById(identificationTag)+" at 14:00 on "+ dayOfMonth[2]+" "+monthName[2]+year[2],
+                                       Toast.LENGTH_LONG).show();
+                               break;
+
+                           case R.id.fifteenCard3:
+                               //Make appointment
+                               Toast.makeText(DoctorPage.this,
+                                       "Appointment made for "+getDocById(identificationTag)+" at 15:00 on "+ dayOfMonth[2]+" "+monthName[2]+year[2],
+                                       Toast.LENGTH_LONG).show();
+                               break;
+
+                           case R.id.sixteenCard3:
+                               //Make appointment
+                               Toast.makeText(DoctorPage.this,
+                                       "Appointment made for "+getDocById(identificationTag)+" at 16:00 on "+ dayOfMonth[2]+" "+monthName[2]+year[2],
+                                       Toast.LENGTH_LONG).show();
+                               break;
+
+                           case R.id.tenCard4:
+                               //Make appointment
+                               Toast.makeText(DoctorPage.this,
+                                       "Appointment made for "+getDocById(identificationTag)+" at 10:00 on "+ dayOfMonth[3]+" "+monthName[3]+year[3],
+                                       Toast.LENGTH_LONG).show();
+                               break;
+
+                           case R.id.elevenCard4:
+                               //Make appointment
+                               Toast.makeText(DoctorPage.this,
+                                       "Appointment made for "+getDocById(identificationTag)+" at 11:00 on "+ dayOfMonth[3]+" "+monthName[3]+year[3],
+                                       Toast.LENGTH_LONG).show();
+                               break;
+
+                           case R.id.twelveCard4:
+                               //Make appointment
+                               Toast.makeText(DoctorPage.this,
+                                       "Appointment made for "+getDocById(identificationTag)+" at 12:00 on "+ dayOfMonth[3]+" "+monthName[3]+year[3],
+                                       Toast.LENGTH_LONG).show();
+                               break;
+
+                           case R.id.fourteenCard4:
+                               //Make appointment
+                               Toast.makeText(DoctorPage.this,
+                                       "Appointment made for "+getDocById(identificationTag)+" at 14:00 on "+ dayOfMonth[3]+" "+monthName[3]+year[3],
+                                       Toast.LENGTH_LONG).show();
+                               break;
+
+                           case R.id.fifteenCard4:
+                               //Make appointment
+                               Toast.makeText(DoctorPage.this,
+                                       "Appointment made for "+getDocById(identificationTag)+" at 15:00 on "+ dayOfMonth[3]+" "+monthName[3]+year[3],
+                                       Toast.LENGTH_LONG).show();
+                               break;
+
+                           case R.id.sixteenCard4:
+                               //Make appointment
+                               Toast.makeText(DoctorPage.this,
+                                       "Appointment made for "+getDocById(identificationTag)+" at 16:00 on "+ dayOfMonth[3]+" "+monthName[3]+year[3],
+                                       Toast.LENGTH_LONG).show();
+                               break;
+                       }
                    }
                })
                .setNegativeButton("No",null).show();
+    }
+
+    String getDocById(String id)
+    {
+        switch (id)
+        {
+            case "doc1":return "Dr. Steve Becker";
+            case "doc2":return "Dr. Sophia Aiden";
+            case "doc3":return "Dr. Allison Reed";
+            default:return "Dr. Steve Becker";
+        }
     }
 }

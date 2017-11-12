@@ -53,6 +53,7 @@
 
 
         <android.support.v7.widget.CardView
+            android:id="@+id/card1"
             android:layout_width="match_parent"
             android:layout_height="160dp"
             android:layout_marginTop="356dp"
@@ -68,6 +69,7 @@
                 android:layout_height="match_parent">
 
                 <TextView
+                    android:id="@+id/date1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -81,6 +83,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
+                    android:id="@+id/tenCard1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -98,6 +101,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
+                    android:id="@+id/elevenCard1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="120dp"
@@ -115,6 +119,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
+                    android:id="@+id/twelveCard1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="224dp"
@@ -133,6 +138,7 @@
 
 
                 <TextView
+                    android:id="@+id/fourteenCard1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -150,6 +156,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
+                    android:id="@+id/fifteenCard1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="120dp"
@@ -167,6 +174,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
+                    android:id="@+id/sixteenCard1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="224dp"
@@ -191,6 +199,7 @@
 
 
         <android.support.v7.widget.CardView
+            android:id="@+id/card2"
             android:layout_width="match_parent"
             android:layout_height="160dp"
             android:layout_marginTop="556dp"
@@ -206,6 +215,7 @@
                 android:layout_height="match_parent">
 
                 <TextView
+                    android:id="@+id/date2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -219,6 +229,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
+                    android:id="@+id/tenCard2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -236,6 +247,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
+                    android:id="@+id/elevenCard2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="120dp"
@@ -253,6 +265,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
+                    android:id="@+id/twelveCard2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="224dp"
@@ -271,6 +284,7 @@
 
 
                 <TextView
+                    android:id="@+id/fourteenCard2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -288,6 +302,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
+                    android:id="@+id/fifteenCard2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="120dp"
@@ -305,6 +320,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
+                    android:id="@+id/sixteenCard2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="224dp"
@@ -327,6 +343,7 @@
         </android.support.v7.widget.CardView>
 
         <android.support.v7.widget.CardView
+            android:id="@+id/card3"
             android:layout_width="match_parent"
             android:layout_height="160dp"
             android:layout_marginTop="756dp"
@@ -342,6 +359,7 @@
                 android:layout_height="match_parent">
 
                 <TextView
+                    android:id="@+id/date3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -355,6 +373,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
+                    android:id="@+id/tenCard3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -372,6 +391,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
+                    android:id="@+id/elevenCard3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="120dp"
@@ -389,6 +409,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
+                    android:id="@+id/twelveCard3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="224dp"
@@ -407,6 +428,7 @@
 
 
                 <TextView
+                    android:id="@+id/fourteenCard3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -424,6 +446,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
+                    android:id="@+id/fifteenCard3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="120dp"
@@ -441,6 +464,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
+                    android:id="@+id/sixteenCard3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="224dp"
@@ -459,14 +483,16 @@
 
 
             </android.support.constraint.ConstraintLayout>
+
         </android.support.v7.widget.CardView>
 
 
 
             <android.support.v7.widget.CardView
+                android:id="@+id/card4"
                 android:layout_width="match_parent"
                 android:layout_height="160dp"
-                android:layout_marginTop="556dp"
+                android:layout_marginTop="956dp"
                 app:cardBackgroundColor="@color/background_dark"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -479,6 +505,7 @@
                     android:layout_height="match_parent">
 
                     <TextView
+                        android:id="@+id/date4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
@@ -492,6 +519,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
+                        android:id="@+id/tenCard4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
@@ -509,6 +537,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
+                        android:id="@+id/elevenCard4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="120dp"
@@ -526,6 +555,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
+                        android:id="@+id/twelveCard4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="224dp"
@@ -544,6 +574,7 @@
 
 
                     <TextView
+                        android:id="@+id/fourteenCard4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
@@ -561,6 +592,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
+                        android:id="@+id/fifteenCard4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="120dp"
@@ -578,6 +610,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
+                        android:id="@+id/sixteenCard4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="224dp"
@@ -600,148 +633,13 @@
             </android.support.v7.widget.CardView>
 
 
-        <android.support.v7.widget.CardView
-            android:id="@+id/appoinmentCard4"
-            android:layout_width="match_parent"
-            android:layout_height="160dp"
-            android:layout_marginTop="956dp"
-            app:cardBackgroundColor="@color/background_dark"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            tools:layout_editor_absoluteX="0dp">
 
-            <android.support.constraint.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="16dp"
-                    android:fontFamily="monospace"
-                    android:text="@string/nov_11"
-                    android:textColor="#fff"
-                    android:textSize="32sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="56dp"
-                    android:background="@drawable/rectangle"
-                    android:fontFamily="monospace"
-                    android:paddingBottom="3dp"
-                    android:paddingLeft="6dp"
-                    android:paddingRight="6dp"
-                    android:paddingTop="3dp"
-                    android:text="@string/ten"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="22sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="120dp"
-                    android:layout_marginTop="56dp"
-                    android:background="@drawable/rectangle"
-                    android:fontFamily="monospace"
-                    android:paddingBottom="3dp"
-                    android:paddingLeft="6dp"
-                    android:paddingRight="6dp"
-                    android:paddingTop="3dp"
-                    android:text="@string/eleven"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="22sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="224dp"
-                    android:layout_marginTop="56dp"
-                    android:background="@drawable/rectangle"
-                    android:fontFamily="monospace"
-                    android:paddingBottom="3dp"
-                    android:paddingLeft="6dp"
-                    android:paddingRight="6dp"
-                    android:paddingTop="3dp"
-                    android:text="@string/twelve"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="22sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="106dp"
-                    android:background="@drawable/rectangle"
-                    android:fontFamily="monospace"
-                    android:paddingBottom="3dp"
-                    android:paddingLeft="6dp"
-                    android:paddingRight="6dp"
-                    android:paddingTop="3dp"
-                    android:text="@string/fourteen"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="22sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="120dp"
-                    android:layout_marginTop="106dp"
-                    android:background="@drawable/rectangle"
-                    android:fontFamily="monospace"
-                    android:paddingBottom="3dp"
-                    android:paddingLeft="6dp"
-                    android:paddingRight="6dp"
-                    android:paddingTop="3dp"
-                    android:text="@string/fifteen"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="22sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="224dp"
-                    android:layout_marginTop="106dp"
-                    android:background="@drawable/rectangle"
-                    android:fontFamily="monospace"
-                    android:paddingBottom="3dp"
-                    android:paddingLeft="6dp"
-                    android:paddingRight="6dp"
-                    android:paddingTop="3dp"
-                    android:text="@string/sixteen"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="22sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-
-            </android.support.constraint.ConstraintLayout>
-
-        </android.support.v7.widget.CardView>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_marginStart="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/appoinmentCard4"
+            app:layout_constraintTop_toBottomOf="@+id/card4"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintStart_toEndOf="parent"/>

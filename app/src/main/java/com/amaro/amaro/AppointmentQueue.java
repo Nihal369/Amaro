@@ -4,35 +4,43 @@ import android.content.SharedPreferences;
 import android.util.Log;
 
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.Map;
 
 class AppointmentQueue {
-    private String doctorName,monthName,dayOfMonth,time,year;
+
+    String appointment;
     AppointmentQueue appointmentQueue;
+    static  DatabaseReference mRootRef,userRef,nameRef;
 
     public AppointmentQueue()
     {
 
     }
 
-    public AppointmentQueue(String doctorName,String monthName,String dayOfMonth,String time,String year)
+    public AppointmentQueue(String appointment)
     {
-        this.doctorName=doctorName;
-        this.monthName=monthName;
-        this.dayOfMonth=dayOfMonth;
-        this.time=time;
-        this.year=year;
+        this.appointment=appointment;
     }
 
 
 
     public static void writeAppointmentToFirebase(String appointmentDetails)
     {
-        DatabaseReference mRootRef= FirebaseDatabase.getInstance().getReference();
-        DatabaseReference userRef=mRootRef.child("Users");
-        DatabaseReference nameRef=userRef.child(LocalDB.getFullName());
+        mRootRef= FirebaseDatabase.getInstance().getReference();
+        userRef=mRootRef.child("Users");
+        nameRef=userRef.child(LocalDB.getFullName());
         String appointmentId = nameRef.push().getKey();
-        nameRef.child(appointmentId).setValue(appointmentDetails);
+        AppointmentQueue appointment=new AppointmentQueue(appointmentDetails);
+        nameRef.child(appointmentId).setValue(appointment);
     }
+
+
+    
 }

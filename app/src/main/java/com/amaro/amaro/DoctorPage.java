@@ -1,7 +1,10 @@
 package com.amaro.amaro;
 
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import java.util.Calendar;
@@ -140,5 +143,20 @@ public class DoctorPage extends AppCompatActivity {
             case 11:return "Dec";
             default:return "Jan";
         }
+    }
+
+    public void bookAppointment(View view)
+    {
+       new AlertDialog.Builder(this,R.style.MyDialogTheme)
+               .setTitle("Confirm Appointment")
+               .setMessage("Please confirm your appointment with Dr Philips")
+               .setIcon(R.drawable.alert)
+               .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                   @Override
+                   public void onClick(DialogInterface dialogInterface, int i) {
+
+                   }
+               })
+               .setNegativeButton("No",null).show();
     }
 }

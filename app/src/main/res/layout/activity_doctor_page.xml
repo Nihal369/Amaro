@@ -84,6 +84,7 @@
 
                 <TextView
                     android:id="@+id/tenCard1"
+                    android:onClick="bookAppointment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -102,6 +103,7 @@
 
                 <TextView
                     android:id="@+id/elevenCard1"
+                    android:onClick="bookAppointment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="120dp"
@@ -120,6 +122,7 @@
 
                 <TextView
                     android:id="@+id/twelveCard1"
+                    android:onClick="bookAppointment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="224dp"
@@ -139,6 +142,7 @@
 
                 <TextView
                     android:id="@+id/fourteenCard1"
+                    android:onClick="bookAppointment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -157,6 +161,7 @@
 
                 <TextView
                     android:id="@+id/fifteenCard1"
+                    android:onClick="bookAppointment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="120dp"
@@ -175,6 +180,7 @@
 
                 <TextView
                     android:id="@+id/sixteenCard1"
+                    android:onClick="bookAppointment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="224dp"
@@ -230,6 +236,7 @@
 
                 <TextView
                     android:id="@+id/tenCard2"
+                    android:onClick="bookAppointment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -248,6 +255,7 @@
 
                 <TextView
                     android:id="@+id/elevenCard2"
+                    android:onClick="bookAppointment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="120dp"
@@ -266,6 +274,7 @@
 
                 <TextView
                     android:id="@+id/twelveCard2"
+                    android:onClick="bookAppointment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="224dp"
@@ -285,6 +294,7 @@
 
                 <TextView
                     android:id="@+id/fourteenCard2"
+                    android:onClick="bookAppointment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -303,6 +313,7 @@
 
                 <TextView
                     android:id="@+id/fifteenCard2"
+                    android:onClick="bookAppointment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="120dp"
@@ -321,6 +332,7 @@
 
                 <TextView
                     android:id="@+id/sixteenCard2"
+                    android:onClick="bookAppointment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="224dp"
@@ -374,6 +386,7 @@
 
                 <TextView
                     android:id="@+id/tenCard3"
+                    android:onClick="bookAppointment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -392,6 +405,7 @@
 
                 <TextView
                     android:id="@+id/elevenCard3"
+                    android:onClick="bookAppointment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="120dp"
@@ -410,6 +424,7 @@
 
                 <TextView
                     android:id="@+id/twelveCard3"
+                    android:onClick="bookAppointment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="224dp"
@@ -429,6 +444,7 @@
 
                 <TextView
                     android:id="@+id/fourteenCard3"
+                    android:onClick="bookAppointment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -447,6 +463,7 @@
 
                 <TextView
                     android:id="@+id/fifteenCard3"
+                    android:onClick="bookAppointment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="120dp"
@@ -465,6 +482,7 @@
 
                 <TextView
                     android:id="@+id/sixteenCard3"
+                    android:onClick="bookAppointment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="224dp"
@@ -520,6 +538,7 @@
 
                     <TextView
                         android:id="@+id/tenCard4"
+                        android:onClick="bookAppointment"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
@@ -538,6 +557,7 @@
 
                     <TextView
                         android:id="@+id/elevenCard4"
+                        android:onClick="bookAppointment"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="120dp"
@@ -556,6 +576,7 @@
 
                     <TextView
                         android:id="@+id/twelveCard4"
+                        android:onClick="bookAppointment"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="224dp"
@@ -575,6 +596,7 @@
 
                     <TextView
                         android:id="@+id/fourteenCard4"
+                        android:onClick="bookAppointment"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
@@ -593,6 +615,7 @@
 
                     <TextView
                         android:id="@+id/fifteenCard4"
+                        android:onClick="bookAppointment"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="120dp"
@@ -611,6 +634,7 @@
 
                     <TextView
                         android:id="@+id/sixteenCard4"
+                        android:onClick="bookAppointment"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="224dp"

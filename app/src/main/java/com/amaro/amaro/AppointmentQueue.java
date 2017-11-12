@@ -12,11 +12,16 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 
 class AppointmentQueue {
 
@@ -68,6 +73,14 @@ class AppointmentQueue {
                 Iterator iterator=listOfAppointments.iterator();
                 while (iterator.hasNext()) {
                     Log.i("NIHAL", iterator.next().toString());
+                    //APPLY REGEX AND PASS IT TO APPOINTMENTS.CLASS
+                    String str = iterator.next().toString();
+                    String stringToPass="";
+                    stringToPass=stringToPass+ StringUtils.substringBetween(str,"dayOfMonth=",",");
+                    stringToPass=stringToPass + " " + StringUtils.substringBetween(str,"{monthName=",",");
+                    stringToPass=stringToPass+" | "+StringUtils.substringBetween(str,"time=",",");
+                    stringToPass=stringToPass+" | "+StringUtils.substringBetween(str,"doctorName=",",");
+                    Log.i("NIHAL",stringToPass);
                 }
             }
 

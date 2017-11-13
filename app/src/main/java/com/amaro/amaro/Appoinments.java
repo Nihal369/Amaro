@@ -53,6 +53,7 @@ public class Appoinments extends AppCompatActivity {
     LinearLayout verticalLayout;
     TextView textView;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,7 +84,7 @@ public class Appoinments extends AppCompatActivity {
     }
 
 
-    public static void writeAppointmentToFirebase(String doctorName,String dayOfMonth,String monthName,String time,String year)
+    public static void writeAppointmentToFirebase(String doctorName, String dayOfMonth, String monthName, String time, String year)
     {
         mRootRef= FirebaseDatabase.getInstance().getReference();
         userRef=mRootRef.child("Users");

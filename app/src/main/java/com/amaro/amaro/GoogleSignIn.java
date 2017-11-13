@@ -54,8 +54,6 @@ public class GoogleSignIn extends AppCompatActivity implements GoogleApiClient.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_google_sign_in);
 
-        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
-
         googleSignInButton = findViewById(R.id.googleSignInButton);
         FirebaseApp.initializeApp(this);
         firebaseAuth=FirebaseAuth.getInstance();

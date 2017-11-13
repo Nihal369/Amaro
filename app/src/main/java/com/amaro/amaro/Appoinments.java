@@ -53,6 +53,7 @@ public class Appoinments extends AppCompatActivity {
     LinearLayout verticalLayout;
     TextView textView;
 
+    boolean flag=true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,10 +80,19 @@ public class Appoinments extends AppCompatActivity {
                 .into(profilePic);
 
         fullNameTextView.setText(fullName);
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
         getAppointmentFromFirebase();
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        verticalLayout.removeAllViews();
+    }
 
     public static void writeAppointmentToFirebase(String doctorName, String dayOfMonth, String monthName, String time, String year)
     {

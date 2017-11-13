@@ -132,16 +132,16 @@ public class Appoinments extends AppCompatActivity {
                     cardView.setLayoutParams(lp);
                     cardView.setCardBackgroundColor(0xff313445);
                     cardView.setPadding(30,30,30,30);
-                    TextView textView1 = new TextView(Appoinments.this);
+                    TextView textView = new TextView(Appoinments.this);
                     LinearLayout.LayoutParams layoutParams=(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
                             LinearLayout.LayoutParams.MATCH_PARENT));
-                    textView1.setLayoutParams(layoutParams);
-                    textView1.setGravity(Gravity.CENTER);
-                    textView1.setText(s);
-                    textView1.setTextColor(0xffffffff); // hex color 0xAARRGGBB
-                    textView1.setTextSize(16);
-                    textView1.setTypeface(Typeface.create("monospace", Typeface.NORMAL));
-                    cardView.addView(textView1);
+                    textView.setLayoutParams(layoutParams);
+                    textView.setGravity(Gravity.CENTER);
+                    textView.setText(s);
+                    textView.setTextColor(0xffffffff); // hex color 0xAARRGGBB
+                    textView.setTextSize(16);
+                    textView.setTypeface(Typeface.create("monospace", Typeface.NORMAL));
+                    cardView.addView(textView);
                     verticalLayout.addView(cardView);
                     index++;
                 }

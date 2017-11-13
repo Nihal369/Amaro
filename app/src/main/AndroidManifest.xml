@@ -23,12 +23,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".UserDetails" />
-        <activity android:name=".PhoneNumber" />
-        <activity android:name=".OTP" />
-        <activity android:name=".Appoinments" />
-        <activity android:name=".DoctorList" />
-        <activity android:name=".DoctorPage"></activity>
+        <activity android:name=".UserDetails"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".PhoneNumber"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".OTP"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Appoinments"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".DoctorList"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".DoctorPage"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

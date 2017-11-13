@@ -161,14 +161,14 @@ public class DoctorPage extends AppCompatActivity {
                        {
                            case R.id.tenCard1:
                                //Make appointment
-                               AppointmentQueue.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[0]),monthName[0]
+                               Appoinments.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[0]),monthName[0]
                                        ,"10:00",String.valueOf(year[0]));
                                Toast.makeText(DoctorPage.this,
                                        "Appointment made for "+getDocById(identificationTag)+" at 10:00 on "+ dayOfMonth[0]+" "+monthName[0]+" "+year[0],
                                        Toast.LENGTH_LONG).show();
                                break;
 
-                           case R.id.elevenCard1:
+                           /*case R.id.elevenCard1:
                                //Make appointment
                                AppointmentQueue.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[0]),monthName[0]
                                        ,"11:00",String.valueOf(year[0]));
@@ -374,7 +374,7 @@ public class DoctorPage extends AppCompatActivity {
                                        "Appointment made for "+getDocById(identificationTag)+" at 15:00 on "+ dayOfMonth[3]+" "+monthName[3]+" "+year[3],
                                        Toast.LENGTH_LONG).show();
                                break;
-
+                        */
                        }
                    }
                })

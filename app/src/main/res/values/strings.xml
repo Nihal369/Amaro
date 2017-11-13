@@ -29,5 +29,6 @@
     <string name="fourteen">14:00</string>
     <string name="fifteen">15:00</string>
     <string name="sixteen">16:00</string>
+    <string name="appointment">APPOINTMENTS:</string>
 
 </resources>

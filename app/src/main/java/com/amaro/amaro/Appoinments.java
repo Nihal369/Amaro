@@ -28,6 +28,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.net.URI;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -110,6 +111,7 @@ public class Appoinments extends AppCompatActivity {
                 Log.i("NIHAL",listOfAppointments.toString());
                 Iterator iterator=listOfAppointments.iterator();
                 int index=0;
+                appointmentTexts=new ArrayList<String>();
                 while (iterator.hasNext()) {
                     //APPLY REGEX AND PASS IT TO APPOINTMENTS.CLASS
                     String str = iterator.next().toString();
@@ -118,6 +120,11 @@ public class Appoinments extends AppCompatActivity {
                     stringToPass=stringToPass + " " + StringUtils.substringBetween(str,"{monthName=",",");
                     stringToPass=stringToPass +" | "+StringUtils.substringBetween(str,"time=",",");
                     stringToPass=stringToPass +" | "+StringUtils.substringBetween(str,"doctorName=",",");
+                    appointmentTexts.add(stringToPass);
+                }
+                Collections.sort(appointmentTexts);
+                for(String s:appointmentTexts)
+                {
                     CardView cardView=new CardView(Appoinments.this);
                     LinearLayout.LayoutParams lp=(new LinearLayout .LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
                             150));
@@ -130,7 +137,7 @@ public class Appoinments extends AppCompatActivity {
                             LinearLayout.LayoutParams.MATCH_PARENT));
                     textView1.setLayoutParams(layoutParams);
                     textView1.setGravity(Gravity.CENTER);
-                    textView1.setText(stringToPass);
+                    textView1.setText(s);
                     textView1.setTextColor(0xffffffff); // hex color 0xAARRGGBB
                     textView1.setTextSize(16);
                     textView1.setTypeface(Typeface.create("monospace", Typeface.NORMAL));

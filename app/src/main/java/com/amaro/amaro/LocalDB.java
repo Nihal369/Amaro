@@ -4,6 +4,9 @@ import android.net.Uri;
 
 public class LocalDB {
 
+
+    //Local Database of the application
+
     private static String fullName,phoneNumber,email;
     static Uri profilePicUri;
 

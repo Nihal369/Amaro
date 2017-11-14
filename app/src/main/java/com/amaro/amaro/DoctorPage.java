@@ -12,8 +12,9 @@ import android.widget.Toast;
 import java.util.Calendar;
 import java.util.Date;
 
-public class DoctorPage extends AppCompatActivity {
+public class DoctorPage extends AppCompatActivity{
 
+    //Object decelerations
     Bundle bundle;
     ImageView doctorImage;
     TextView doctorDepartment,doctorName,date1Text,date2Text,date3Text,date4Text;
@@ -29,6 +30,7 @@ public class DoctorPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_page);
 
+        //Object initializations
         date1Text=findViewById(R.id.date1);
         date2Text=findViewById(R.id.date2);
         date3Text=findViewById(R.id.date3);
@@ -38,10 +40,22 @@ public class DoctorPage extends AppCompatActivity {
         doctorName=findViewById(R.id.doctorName);
         doctorDepartment=findViewById(R.id.doctorDepartment);
 
+        retrieveDataFromIntent();
+
+        setDoctorPage();
+
+        setDate();
+    }
+
+    private void retrieveDataFromIntent()
+    {
         bundle = getIntent().getExtras();
         assert bundle != null;
         identificationTag=bundle.getString("tag");
+    }
 
+    private void setDoctorPage()
+    {
         assert identificationTag != null;
         switch (identificationTag)
         {
@@ -63,36 +77,57 @@ public class DoctorPage extends AppCompatActivity {
                 doctorDepartment.setText(R.string.oncologist);
                 break;
         }
-
-        setDate();
     }
 
+    //Function that gets the next 4 working days for booking appointments
     void setDate()
     {
+        //Declare calendar object
         calendar=Calendar.getInstance();
         today=calendar.getTime();
+
+        //Set the calendar time
         calendar.setTime(today);
 
+        //Initializing the loop variable to 0
         index=0;
 
+        //Array of  size 4 to store the next 4 working days
         month = new int[4];
         dayOfMonth = new int[4];
         dayOfWeek = new int[4];
         year = new int[4];
         monthName = new String[4];
 
+        //Get the the next 4 working days
         for(;index<4;index++) {
+            //Only add 1 day to next 3 days
             if(index!=0)
             {
                 calendar.add(Calendar.DATE,1);
             }
-            dayOfMonth[index] = calendar.get(Calendar.DAY_OF_MONTH);
-            month[index] = calendar.get(Calendar.MONTH);
-            monthName[index] = getMonthName(month[index]);
-            year[index] = calendar.get(Calendar.YEAR);
+
+            assignDates();
             dayOfWeek[index] = calendar.get(Calendar.DAY_OF_WEEK);
+
+            //Check the day is a sunday or saturday and do the appropriate
             checkIfSundayOrSaturday();
         }
+
+       setDateTexts();
+
+    }
+
+    private void assignDates()
+    {
+        dayOfMonth[index] = calendar.get(Calendar.DAY_OF_MONTH);
+        month[index] = calendar.get(Calendar.MONTH);
+        monthName[index] = getMonthName(month[index]);
+        year[index] = calendar.get(Calendar.YEAR);
+    }
+
+    private void setDateTexts()
+    {
 
         date1=monthName[0]+" "+dayOfMonth[0];
         date2=monthName[1]+" "+dayOfMonth[1];
@@ -104,30 +139,28 @@ public class DoctorPage extends AppCompatActivity {
         date2Text.setText(date2);
         date3Text.setText(date3);
         date4Text.setText(date4);
-
     }
 
+    //Check if the day is sunday or saturday and add 1 or 2 days if its true
     void checkIfSundayOrSaturday()
     {
+        //Check if the day is sunday
         if(dayOfWeek[index]==Calendar.SUNDAY)
         {
+            //Add 1 day to sunday,update the variables;
             calendar.add(Calendar.DATE,1);
-            dayOfMonth[index]=calendar.get(Calendar.DAY_OF_MONTH);
-            month[index] = calendar.get(Calendar.MONTH);
-            monthName[index] = getMonthName(month[index]);
-            year[index] = calendar.get(Calendar.YEAR);
+            assignDates();
         }
+        //Check if the day is saturday
         else if(dayOfWeek[index]==Calendar.SATURDAY)
         {
-            calendar.add(Calendar.DATE,2);
-            dayOfMonth[index]=calendar.get(Calendar.DAY_OF_MONTH);
-            month[index] = calendar.get(Calendar.MONTH);
-            monthName[index] = getMonthName(month[index]);
-            year[index] = calendar.get(Calendar.YEAR);
+            //Add 2 days to saturday,Update the variables
+            assignDates();
         }
 
     }
 
+    //Return month name to the corresponding month index
     String getMonthName(int month)
     {
         switch (month)
@@ -381,6 +414,8 @@ public class DoctorPage extends AppCompatActivity {
                .setNegativeButton("No",null).show();
     }
 
+
+    //Get doctor name by passing the identification tag
     String getDocById(String id)
     {
         switch (id)

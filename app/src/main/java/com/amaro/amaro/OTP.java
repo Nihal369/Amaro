@@ -11,28 +11,25 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseException;
-import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
 
 import java.util.Objects;
-import java.util.concurrent.TimeUnit;
 
-import static com.amaro.amaro.GoogleSignIn.phoneNumber;
 
 public class OTP extends AppCompatActivity {
 
+    //Object decelerations
     private static final String TAG = "OTP";
     private boolean mVerificationInProgress = false;
     private String mVerificationId;
     private PhoneAuthProvider.ForceResendingToken mResendToken;
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks;
     private FirebaseAuth mAuth;
+
     String OTPNumber;
 
     @Override
@@ -40,8 +37,11 @@ public class OTP extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_otp);
 
+        //Get firebaseAuth Instance
         mAuth = FirebaseAuth.getInstance();
 
+
+        //Instantiate a phone verification process
         mCallbacks=new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
             @Override
             public void onVerificationCompleted(PhoneAuthCredential phoneAuthCredential) {
@@ -66,6 +66,7 @@ public class OTP extends AppCompatActivity {
             }
         };
 
+        //Phone Auth Parameters
         PhoneAuthProvider.getInstance().verifyPhoneNumber(
                 LocalDB.getPhoneNumber(),
                 60,
@@ -75,28 +76,25 @@ public class OTP extends AppCompatActivity {
 
     }
 
+    //Function attached to verify button
     public void verifyOTP(View view)
     {
         EditText editText=findViewById(R.id.OTPEditText);
         OTPNumber=editText.getText().toString();
+
+        //Get the credential
         PhoneAuthCredential credential = PhoneAuthProvider.getCredential(mVerificationId,OTPNumber);
-        // [END verify_with_code]
-        signInWithPhoneAuthCredential(credential);
+
+        //If the sms code matches the user entered text
+        if(Objects.equals(credential.getSmsCode(), OTPNumber)) {
+            Intent intent = new Intent(OTP.this, Appoinments.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            OTP.this.finish();
+        }
     }
-    FirebaseAuth.AuthStateListener mAuthListener;
 
     private void signInWithPhoneAuthCredential(final PhoneAuthCredential credential) {
-
-        FirebaseAuth firebaseAuth=FirebaseAuth.getInstance();
-        firebaseAuth.addAuthStateListener(mAuthListener);
-        mAuthListener=new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                if (firebaseAuth.getCurrentUser() != null) {
-                    firebaseAuth.getCurrentUser().linkWithCredential(credential);
-                }
-            }
-        };
 
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -120,7 +118,5 @@ public class OTP extends AppCompatActivity {
                 });
 
     }
-
-
 
 }

@@ -8,6 +8,7 @@ import android.widget.EditText;
 
 public class PhoneNumber extends AppCompatActivity {
 
+    //Object decelerations
     String phoneNumber;
     EditText phoneNumberForm;
 
@@ -15,9 +16,12 @@ public class PhoneNumber extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_phone_number);
+
+        //Declare the phone number form
         phoneNumberForm=findViewById(R.id.phoneNumberEditText);
     }
 
+    //Change activity
     public void goToOtp(View view)
     {
         phoneNumber=phoneNumberForm.getText().toString();

@@ -1,36 +1,28 @@
 package com.amaro.amaro;
 
 import android.content.Intent;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseException;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
-
-import java.util.Objects;
 
 
 public class OTP extends AppCompatActivity {
 
     //Object decelerations
     private static final String TAG = "OTP";
-    private boolean mVerificationInProgress = false;
     private String mVerificationId;
     private PhoneAuthProvider.ForceResendingToken mResendToken;
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks;
     private FirebaseAuth mAuth;
 
-    String OTPNumber;
+    Intent intent;
+    String OTPNumber,sentNumber;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,17 +32,21 @@ public class OTP extends AppCompatActivity {
         //Get firebaseAuth Instance
         mAuth = FirebaseAuth.getInstance();
 
+        sentNumber="";
 
-        //Instantiate a phone verification process
+        //Check for the OTP
         mCallbacks=new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
             @Override
             public void onVerificationCompleted(PhoneAuthCredential phoneAuthCredential) {
-                mVerificationInProgress = false;
+                sentNumber=phoneAuthCredential.getSmsCode();
+                Toast.makeText(OTP.this, "Verification Success", Toast.LENGTH_SHORT).show();
+                moveToNextActivity();
             }
 
             @Override
             public void onVerificationFailed(FirebaseException e) {
-                Log.e(TAG,String.valueOf(e));
+
+                Toast.makeText(OTP.this, "Invalid OTP", Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -84,12 +80,21 @@ public class OTP extends AppCompatActivity {
         PhoneAuthCredential credential = PhoneAuthProvider.getCredential(mVerificationId,OTPNumber);
 
         //If the sms code matches the user entered text
-        if(credential.getSmsCode().equals(OTPNumber)) {
-            Intent intent = new Intent(OTP.this, Appoinments.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            startActivity(intent);
-            OTP.this.finish();
+        if(OTPNumber.equals(sentNumber)) {
+            moveToNextActivity();
         }
+        else
+        {
+            Toast.makeText(OTP.this, "Invalid OTP", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void moveToNextActivity()
+    {
+        intent = new Intent(OTP.this, Appoinments.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        OTP.this.finish();
     }
 
 }

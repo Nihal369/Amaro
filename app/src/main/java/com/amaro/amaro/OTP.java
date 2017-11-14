@@ -46,8 +46,6 @@ public class OTP extends AppCompatActivity {
             @Override
             public void onVerificationCompleted(PhoneAuthCredential phoneAuthCredential) {
                 mVerificationInProgress = false;
-                Toast.makeText(OTP.this, "Verification Complete", Toast.LENGTH_SHORT).show();
-                signInWithPhoneAuthCredential(phoneAuthCredential);
             }
 
             @Override
@@ -86,37 +84,12 @@ public class OTP extends AppCompatActivity {
         PhoneAuthCredential credential = PhoneAuthProvider.getCredential(mVerificationId,OTPNumber);
 
         //If the sms code matches the user entered text
-        if(Objects.equals(credential.getSmsCode(), OTPNumber)) {
+        if(credential.getSmsCode().equals(OTPNumber)) {
             Intent intent = new Intent(OTP.this, Appoinments.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
             OTP.this.finish();
         }
-    }
-
-    private void signInWithPhoneAuthCredential(final PhoneAuthCredential credential) {
-
-        mAuth.signInWithCredential(credential)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            Toast.makeText(OTP.this,"Verification Done",Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(OTP.this, Appoinments.class);
-                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                            startActivity(intent);
-                            OTP.this.finish();
-                            // ...
-                        } else {
-
-                            if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
-                                // The verification code entered was invalid
-                                Toast.makeText(OTP.this, "Invalid OTP", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    }
-                });
-
     }
 
 }

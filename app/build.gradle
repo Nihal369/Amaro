@@ -26,6 +26,7 @@ dependencies {
     compile 'com.google.firebase:firebase-auth:11.6.0'
     compile 'com.google.android.gms:play-services-auth:11.6.0'
     compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.github.GrenderG:Toasty:1.2.5'
     compile 'com.willowtreeapps.spruce:spruce-android:1.0.1'
     compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.4'
     testImplementation 'junit:junit:4.12'

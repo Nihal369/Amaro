@@ -12,6 +12,8 @@ import android.widget.Toast;
 import java.util.Calendar;
 import java.util.Date;
 
+import es.dmoral.toasty.Toasty;
+
 public class DoctorPage extends AppCompatActivity{
 
     //Object decelerations
@@ -196,7 +198,7 @@ public class DoctorPage extends AppCompatActivity{
                                //Make appointment
                                Appoinments.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[0]),monthName[0]
                                        ,"10:00",String.valueOf(year[0]));
-                               Toast.makeText(DoctorPage.this,
+                               Toasty.info(DoctorPage.this,
                                        "Appointment made for "+getDocById(identificationTag)+" at 10:00 on "+ dayOfMonth[0]+" "+monthName[0]+" "+year[0],
                                        Toast.LENGTH_LONG).show();
                                break;
@@ -205,7 +207,7 @@ public class DoctorPage extends AppCompatActivity{
                                //Make appointment
                                Appoinments.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[0]),monthName[0]
                                        ,"11:00",String.valueOf(year[0]));
-                               Toast.makeText(DoctorPage.this,
+                               Toasty.info(DoctorPage.this,
                                        "Appointment made for "+getDocById(identificationTag)+" at 11:00 on "+ dayOfMonth[0]+" "+monthName[0]+" "+year[0],
                                        Toast.LENGTH_LONG).show();
                                break;
@@ -214,7 +216,7 @@ public class DoctorPage extends AppCompatActivity{
                                //Make appointment
                                Appoinments.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[0]),monthName[0]
                                        ,"12:00",String.valueOf(year[0]));
-                               Toast.makeText(DoctorPage.this,
+                               Toasty.info(DoctorPage.this,
                                        "Appointment made for "+getDocById(identificationTag)+" at 12:00 on "+ dayOfMonth[0]+" "+monthName[0]+" "+year[0],
                                        Toast.LENGTH_LONG).show();
                                break;
@@ -223,7 +225,7 @@ public class DoctorPage extends AppCompatActivity{
                                //Make appointment
                                Appoinments.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[0]),monthName[0]
                                        ,"14:00",String.valueOf(year[0]));
-                               Toast.makeText(DoctorPage.this,
+                               Toasty.info(DoctorPage.this,
                                        "Appointment made for "+getDocById(identificationTag)+" at 14:00 on "+ dayOfMonth[0]+" "+monthName[0]+" "+year[0],
                                        Toast.LENGTH_LONG).show();
                                break;
@@ -232,7 +234,7 @@ public class DoctorPage extends AppCompatActivity{
                                //Make appointment
                                Appoinments.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[0]),monthName[0]
                                        ,"15:00",String.valueOf(year[0]));
-                               Toast.makeText(DoctorPage.this,
+                               Toasty.info(DoctorPage.this,
                                        "Appointment made for "+getDocById(identificationTag)+" at 15:00 on "+ dayOfMonth[0]+" "+monthName[0]+" "+year[0],
                                        Toast.LENGTH_LONG).show();
                                break;
@@ -241,7 +243,7 @@ public class DoctorPage extends AppCompatActivity{
                                //Make appointment
                                Appoinments.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[0]),monthName[0]
                                        ,"16:00",String.valueOf(year[0]));
-                               Toast.makeText(DoctorPage.this,
+                               Toasty.info(DoctorPage.this,
                                        "Appointment made for "+getDocById(identificationTag)+" at 16:00 on "+ dayOfMonth[0]+" "+monthName[0]+" "+year[0],
                                        Toast.LENGTH_LONG).show();
                                break;
@@ -250,7 +252,7 @@ public class DoctorPage extends AppCompatActivity{
                                //Make appointment
                                Appoinments.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[1]),monthName[1]
                                        ,"10:00",String.valueOf(year[1]));
-                               Toast.makeText(DoctorPage.this,
+                               Toasty.info(DoctorPage.this,
                                        "Appointment made for "+getDocById(identificationTag)+" at 10:00 on "+ dayOfMonth[1]+" "+monthName[1]+" "+year[1],
                                        Toast.LENGTH_LONG).show();
                                break;
@@ -259,7 +261,7 @@ public class DoctorPage extends AppCompatActivity{
                                //Make appointment
                                Appoinments.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[1]),monthName[1]
                                        ,"11:00",String.valueOf(year[1]));
-                               Toast.makeText(DoctorPage.this,
+                               Toasty.info(DoctorPage.this,
                                        "Appointment made for "+getDocById(identificationTag)+" at 11:00 on "+ dayOfMonth[1]+" "+monthName[1]+" "+year[1],
                                        Toast.LENGTH_LONG).show();
                                break;
@@ -268,7 +270,7 @@ public class DoctorPage extends AppCompatActivity{
                                //Make appointment
                                Appoinments.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[1]),monthName[1]
                                        ,"12:00",String.valueOf(year[1]));
-                               Toast.makeText(DoctorPage.this,
+                               Toasty.info(DoctorPage.this,
                                        "Appointment made for "+getDocById(identificationTag)+" at 12:00 on "+ dayOfMonth[1]+" "+monthName[1]+" "+year[1],
                                        Toast.LENGTH_LONG).show();
                                break;
@@ -277,7 +279,7 @@ public class DoctorPage extends AppCompatActivity{
                                //Make appointment
                                Appoinments.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[1]),monthName[1]
                                        ,"14:00",String.valueOf(year[1]));
-                               Toast.makeText(DoctorPage.this,
+                               Toasty.info(DoctorPage.this,
                                        "Appointment made for "+getDocById(identificationTag)+" at 14:00 on "+ dayOfMonth[1]+" "+monthName[1]+" "+year[1],
                                        Toast.LENGTH_LONG).show();
                                break;
@@ -286,7 +288,7 @@ public class DoctorPage extends AppCompatActivity{
                                //Make appointment
                                Appoinments.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[1]),monthName[1]
                                        ,"15:00",String.valueOf(year[1]));
-                               Toast.makeText(DoctorPage.this,
+                               Toasty.info(DoctorPage.this,
                                        "Appointment made for "+getDocById(identificationTag)+" at 15:00 on "+ dayOfMonth[1]+" "+monthName[1]+" "+year[1],
                                        Toast.LENGTH_LONG).show();
                                break;
@@ -295,7 +297,7 @@ public class DoctorPage extends AppCompatActivity{
                                //Make appointment
                                Appoinments.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[1]),monthName[1]
                                        ,"16:00",String.valueOf(year[1]));
-                               Toast.makeText(DoctorPage.this,
+                               Toasty.info(DoctorPage.this,
                                        "Appointment made for "+getDocById(identificationTag)+" at 16:00 on "+ dayOfMonth[1]+" "+monthName[1]+" "+year[1],
                                        Toast.LENGTH_LONG).show();
                                break;
@@ -304,7 +306,7 @@ public class DoctorPage extends AppCompatActivity{
                                //Make appointment
                                Appoinments.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[2]),monthName[2]
                                        ,"10:00",String.valueOf(year[2]));
-                               Toast.makeText(DoctorPage.this,
+                               Toasty.info(DoctorPage.this,
                                        "Appointment made for "+getDocById(identificationTag)+" at 10:00 on "+ dayOfMonth[2]+" "+monthName[2]+" "+year[2],
                                        Toast.LENGTH_LONG).show();
                                break;
@@ -313,7 +315,7 @@ public class DoctorPage extends AppCompatActivity{
                                //Make appointment
                                Appoinments.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[2]),monthName[2]
                                        ,"11:00",String.valueOf(year[2]));
-                               Toast.makeText(DoctorPage.this,
+                               Toasty.info(DoctorPage.this,
                                        "Appointment made for "+getDocById(identificationTag)+" at 11:00 on "+ dayOfMonth[2]+" "+monthName[2]+" "+year[2],
                                        Toast.LENGTH_LONG).show();
                                break;
@@ -322,7 +324,7 @@ public class DoctorPage extends AppCompatActivity{
                                //Make appointment
                                Appoinments.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[2]),monthName[2]
                                        ,"12:00",String.valueOf(year[2]));
-                               Toast.makeText(DoctorPage.this,
+                               Toasty.info(DoctorPage.this,
                                        "Appointment made for "+getDocById(identificationTag)+" at 12:00 on "+ dayOfMonth[2]+" "+monthName[2]+" "+year[2],
                                        Toast.LENGTH_LONG).show();
                                break;
@@ -331,7 +333,7 @@ public class DoctorPage extends AppCompatActivity{
                                //Make appointment
                                Appoinments.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[2]),monthName[2]
                                        ,"14:00",String.valueOf(year[2]));
-                               Toast.makeText(DoctorPage.this,
+                               Toasty.info(DoctorPage.this,
                                        "Appointment made for "+getDocById(identificationTag)+" at 14:00 on "+ dayOfMonth[2]+" "+monthName[2]+" "+year[2],
                                        Toast.LENGTH_LONG).show();
                                break;
@@ -340,7 +342,7 @@ public class DoctorPage extends AppCompatActivity{
                                //Make appointment
                                Appoinments.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[2]),monthName[2]
                                        ,"15:00",String.valueOf(year[2]));
-                               Toast.makeText(DoctorPage.this,
+                               Toasty.info(DoctorPage.this,
                                        "Appointment made for "+getDocById(identificationTag)+" at 15:00 on "+ dayOfMonth[2]+" "+monthName[2]+" "+year[2],
                                        Toast.LENGTH_LONG).show();
                                break;
@@ -349,7 +351,7 @@ public class DoctorPage extends AppCompatActivity{
                                //Make appointment
                                Appoinments.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[2]),monthName[2]
                                        ,"16:00",String.valueOf(year[2]));
-                               Toast.makeText(DoctorPage.this,
+                               Toasty.info(DoctorPage.this,
                                        "Appointment made for "+getDocById(identificationTag)+" at 16:00 on "+ dayOfMonth[2]+" "+monthName[2]+" "+year[2],
                                        Toast.LENGTH_LONG).show();
                                break;
@@ -358,7 +360,7 @@ public class DoctorPage extends AppCompatActivity{
                                //Make appointment
                                Appoinments.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[3]),monthName[3]
                                        ,"10:00",String.valueOf(year[3]));
-                               Toast.makeText(DoctorPage.this,
+                               Toasty.info(DoctorPage.this,
                                        "Appointment made for "+getDocById(identificationTag)+" at 10:00 on "+ dayOfMonth[3]+" "+monthName[3]+" "+year[3],
                                        Toast.LENGTH_LONG).show();
                                break;
@@ -367,7 +369,7 @@ public class DoctorPage extends AppCompatActivity{
                                //Make appointment
                                Appoinments.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[3]),monthName[3]
                                        ,"11:00",String.valueOf(year[3]));
-                               Toast.makeText(DoctorPage.this,
+                               Toasty.info(DoctorPage.this,
                                        "Appointment made for "+getDocById(identificationTag)+" at 11:00 on "+ dayOfMonth[3]+" "+monthName[3]+" "+year[3],
                                        Toast.LENGTH_LONG).show();
                                break;
@@ -376,7 +378,7 @@ public class DoctorPage extends AppCompatActivity{
                                //Make appointment
                                Appoinments.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[3]),monthName[3]
                                        ,"12:00",String.valueOf(year[3]));
-                               Toast.makeText(DoctorPage.this,
+                               Toasty.info(DoctorPage.this,
                                        "Appointment made for "+getDocById(identificationTag)+" at 12:00 on "+ dayOfMonth[3]+" "+monthName[3]+" "+year[3],
                                        Toast.LENGTH_LONG).show();
                                break;
@@ -385,7 +387,7 @@ public class DoctorPage extends AppCompatActivity{
                                //Make appointment
                                Appoinments.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[3]),monthName[3]
                                        ,"14:00",String.valueOf(year[3]));
-                               Toast.makeText(DoctorPage.this,
+                               Toasty.info(DoctorPage.this,
                                        "Appointment made for "+getDocById(identificationTag)+" at 14:00 on "+ dayOfMonth[3]+" "+monthName[3]+" "+year[3],
                                        Toast.LENGTH_LONG).show();
                                break;
@@ -394,7 +396,7 @@ public class DoctorPage extends AppCompatActivity{
                                //Make appointment
                                Appoinments.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[3]),monthName[3]
                                        ,"15:00",String.valueOf(year[3]));
-                               Toast.makeText(DoctorPage.this,
+                               Toasty.info(DoctorPage.this,
                                        "Appointment made for "+getDocById(identificationTag)+" at 15:00 on "+ dayOfMonth[3]+" "+monthName[3]+" "+year[3],
                                        Toast.LENGTH_LONG).show();
                                break;
@@ -403,7 +405,7 @@ public class DoctorPage extends AppCompatActivity{
                                //Make appointment
                                Appoinments.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[3]),monthName[3]
                                        ,"16:00",String.valueOf(year[3]));
-                               Toast.makeText(DoctorPage.this,
+                               Toasty.info(DoctorPage.this,
                                        "Appointment made for "+getDocById(identificationTag)+" at 15:00 on "+ dayOfMonth[3]+" "+monthName[3]+" "+year[3],
                                        Toast.LENGTH_LONG).show();
                                break;

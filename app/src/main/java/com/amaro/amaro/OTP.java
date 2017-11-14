@@ -10,6 +10,8 @@ import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
 
+import es.dmoral.toasty.Toasty;
+
 
 public class OTP extends AppCompatActivity {
 
@@ -37,21 +39,21 @@ public class OTP extends AppCompatActivity {
             @Override
             public void onVerificationCompleted(PhoneAuthCredential phoneAuthCredential) {
                 sentNumber=phoneAuthCredential.getSmsCode();
-                Toast.makeText(OTP.this, "Verification Success", Toast.LENGTH_SHORT).show();
+                Toasty.success(OTP.this, "Verification Success", Toast.LENGTH_SHORT).show();
                 moveToNextActivity();
             }
 
             @Override
             public void onVerificationFailed(FirebaseException e) {
 
-                Toast.makeText(OTP.this, "Invalid OTP", Toast.LENGTH_SHORT).show();
+                Toasty.error(OTP.this, "Invalid OTP", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onCodeSent(String verificationId,
                                    PhoneAuthProvider.ForceResendingToken token) {
                 // Log.d(TAG, "onCodeSent:" + verificationId);
-                Toast.makeText(OTP.this, "OTP has been send to your number", Toast.LENGTH_SHORT).show();
+                Toasty.info(OTP.this, "OTP has been send to your number", Toast.LENGTH_SHORT).show();
                 // Save verification ID and resending token so we can use them later
                 mVerificationId = verificationId;
                 mResendToken = token;
@@ -80,7 +82,7 @@ public class OTP extends AppCompatActivity {
         }
         else
         {
-            Toast.makeText(OTP.this, "Invalid OTP", Toast.LENGTH_SHORT).show();
+            Toasty.error(OTP.this, "Invalid OTP", Toast.LENGTH_SHORT).show();
         }
     }
 

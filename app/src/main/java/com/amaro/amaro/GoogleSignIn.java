@@ -22,6 +22,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
+import es.dmoral.toasty.Toasty;
+
 public class GoogleSignIn extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
 
     SignInButton googleSignInButton;
@@ -95,7 +97,7 @@ public class GoogleSignIn extends AppCompatActivity implements GoogleApiClient.O
                 .enableAutoManage(this, new GoogleApiClient.OnConnectionFailedListener() {
                     @Override
                     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-                        Toast.makeText(GoogleSignIn.this,"Sign in failed",Toast.LENGTH_SHORT).show();
+                        Toasty.error(GoogleSignIn.this,"Sign in failed",Toast.LENGTH_SHORT).show();
                     }
                 })
                 .addApi(Auth.GOOGLE_SIGN_IN_API,gso)
@@ -126,7 +128,7 @@ public class GoogleSignIn extends AppCompatActivity implements GoogleApiClient.O
             }
             else
             {
-                Toast.makeText(this, "Sign in failed", Toast.LENGTH_SHORT).show();
+                Toasty.error(this, "Sign in failed", Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -142,6 +144,8 @@ public class GoogleSignIn extends AppCompatActivity implements GoogleApiClient.O
                             // Sign in success, update UI with the signed-in user's information;
                             FirebaseUser user = firebaseAuth.getCurrentUser();
 
+                            Toasty.success(GoogleSignIn.this, "Success", Toast.LENGTH_SHORT).show();
+
                             //Retrieve google account data and store it in LocalDB
                             assert user != null;
                             LocalDB.setFullName(user.getDisplayName());
@@ -156,7 +160,7 @@ public class GoogleSignIn extends AppCompatActivity implements GoogleApiClient.O
                         }
                         else {
                             // If sign in fails, display a message to the user.
-                            Toast.makeText(GoogleSignIn.this, "Authentication failed.",
+                            Toasty.error(GoogleSignIn.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
                         }
                     }

@@ -1,5 +1,6 @@
 package com.amaro.amaro;
 
+import android.animation.Animator;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.net.Uri;
@@ -18,6 +19,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
+import com.willowtreeapps.spruce.Spruce;
+import com.willowtreeapps.spruce.animation.DefaultAnimations;
+import com.willowtreeapps.spruce.sort.DefaultSort;
+
 import org.apache.commons.lang3.StringUtils;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -140,7 +145,9 @@ public class Appoinments extends AppCompatActivity {
                 listOfAppointments.clear();
 
                 //Map that stores retrived data from the DataSnapshot
-                fireBaseMap = (HashMap<String,AppointmentQueue>) dataSnapshot.getValue();
+                if(dataSnapshot!=null) {
+                    fireBaseMap = (HashMap<String, AppointmentQueue>) dataSnapshot.getValue();
+                }
 
                 //Retrieve each value of the map
                 retrieveDataFromFirebaseMap();
@@ -162,10 +169,11 @@ public class Appoinments extends AppCompatActivity {
 
     private void retrieveDataFromFirebaseMap()
     {
-        //Retrive data from the snapshot map
-        for(String key:fireBaseMap.keySet())
-        {
-            listOfAppointments.add(fireBaseMap.get(key));
+        if(fireBaseMap!=null) {
+            //Retrive data from the snapshot map
+            for (String key : fireBaseMap.keySet()) {
+                listOfAppointments.add(fireBaseMap.get(key));
+            }
         }
     }
 
@@ -173,63 +181,74 @@ public class Appoinments extends AppCompatActivity {
     {
         //Convert the AppointmentQueue objects to String
         //Looping through all
-        Iterator iterator=listOfAppointments.iterator();
+        if(fireBaseMap!=null) {
+            Iterator iterator = listOfAppointments.iterator();
 
 
-        //AppointmentQueue objects as strings are stored here
-        appointmentTexts=new ArrayList<String>();
+            //AppointmentQueue objects as strings are stored here
+            appointmentTexts = new ArrayList<String>();
 
-        //Convert each appointment to a string format
-        while (iterator.hasNext()) {
-            String str = iterator.next().toString();
-            String stringToPass="";
-            stringToPass=stringToPass + StringUtils.substringBetween(str,"dayOfMonth=",",");
-            stringToPass=stringToPass + " " + StringUtils.substringBetween(str,"{monthName=",",");
-            stringToPass=stringToPass +" | "+StringUtils.substringBetween(str,"time=",",");
-            stringToPass=stringToPass +" | "+StringUtils.substringBetween(str,"doctorName=",",");
-            appointmentTexts.add(stringToPass);
+            //Convert each appointment to a string format
+            while (iterator.hasNext()) {
+                String str = iterator.next().toString();
+                String stringToPass = "";
+                stringToPass = stringToPass + StringUtils.substringBetween(str, "dayOfMonth=", ",");
+                stringToPass = stringToPass + " " + StringUtils.substringBetween(str, "{monthName=", ",");
+                stringToPass = stringToPass + " | " + StringUtils.substringBetween(str, "time=", ",");
+                stringToPass = stringToPass + " | " + StringUtils.substringBetween(str, "doctorName=", ",");
+                appointmentTexts.add(stringToPass);
+            }
+
+            //Sort the appointment texts
+            Collections.sort(appointmentTexts);
         }
-
-        //Sort the appointment texts
-        Collections.sort(appointmentTexts);
     }
 
     private void setAppointmentTexts()
     {
         //Set the dynamic layout with appointment texts
+        if(fireBaseMap!=null) {
+            for (String s : appointmentTexts) {
+                //Card view of the dynamic layout
+                CardView cardView = new CardView(Appoinments.this);
+                LinearLayout.LayoutParams lp = (new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
+                        150));
+                lp.setMargins(18, 20, 18, 20);
+                cardView.setLayoutParams(lp);
+                cardView.setCardBackgroundColor(0xff313445);
+                cardView.setPadding(30, 30, 30, 30);
 
-        for(String s:appointmentTexts)
-        {
-            //Card view of the dynamic layout
-            CardView cardView=new CardView(Appoinments.this);
-            LinearLayout.LayoutParams lp=(new LinearLayout .LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
-                    150));
-            lp.setMargins(18,20,18,20);
-            cardView.setLayoutParams(lp);
-            cardView.setCardBackgroundColor(0xff313445);
-            cardView.setPadding(30,30,30,30);
+                //Text view of the dynamic layout
+                TextView textView = new TextView(Appoinments.this);
+                LinearLayout.LayoutParams layoutParams = (new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
+                        LinearLayout.LayoutParams.MATCH_PARENT));
+                textView.setLayoutParams(layoutParams);
+                textView.setGravity(Gravity.CENTER);
+                textView.setText(s);
+                textView.setTextColor(0xffffffff); // hex color 0xAARRGGBB
+                textView.setTextSize(16);
+                textView.setTypeface(Typeface.create("monospace", Typeface.NORMAL));
 
-            //Text view of the dynamic layout
-            TextView textView = new TextView(Appoinments.this);
-            LinearLayout.LayoutParams layoutParams=(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
-                    LinearLayout.LayoutParams.MATCH_PARENT));
-            textView.setLayoutParams(layoutParams);
-            textView.setGravity(Gravity.CENTER);
-            textView.setText(s);
-            textView.setTextColor(0xffffffff); // hex color 0xAARRGGBB
-            textView.setTextSize(16);
-            textView.setTypeface(Typeface.create("monospace", Typeface.NORMAL));
+                //Add the text view to card view
+                cardView.addView(textView);
 
-            //Add the text view to card view
-            cardView.addView(textView);
+                Animator spruceAnimator = new Spruce
+                        .SpruceBuilder(verticalLayout)
+                        .sortWith(new DefaultSort(/*interObjectDelay=*/50L))
+                        .animateWith(new Animator[]{DefaultAnimations.shrinkAnimator(verticalLayout, /*duration=*/800)})
+                        .start();
 
-            //Add the card view to linear layout
-            verticalLayout.addView(cardView);
+                //Add the card view to linear layout
+                verticalLayout.addView(cardView);
+
+
+            }
+
+            //Set the number of appointments to a text view
+            String numberOfAppointments = getString(R.string.appointment) + String.valueOf(listOfAppointments.size());
+            appointmentTextView.setText(numberOfAppointments);
         }
 
-        //Set the number of appointments to a text view
-        String numberOfAppointments=getString(R.string.appointment)+String.valueOf(listOfAppointments.size());
-        appointmentTextView.setText(numberOfAppointments);
     }
 
     public void moveToDoctorList(View v)

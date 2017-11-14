@@ -1,22 +1,17 @@
 package com.amaro.amaro;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
-
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.SignInButton;
-import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -26,10 +21,6 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
-import com.google.firebase.database.FirebaseDatabase;
-
-import java.net.URL;
-import java.sql.Date;
 
 public class GoogleSignIn extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
 
@@ -40,12 +31,13 @@ public class GoogleSignIn extends AppCompatActivity implements GoogleApiClient.O
     FirebaseAuth.AuthStateListener mAuthListener;
 
 
-    static String fullName,phoneNumber,email;
-    static Uri profilePicUrl;
+    static String phoneNumber;
+
 
     @Override
     protected void onStart() {
         super.onStart();
+        //Add a listener to check for a google account during app start
         firebaseAuth.addAuthStateListener(mAuthListener);
     }
 
@@ -54,20 +46,28 @@ public class GoogleSignIn extends AppCompatActivity implements GoogleApiClient.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_google_sign_in);
 
+        //Decelerations
         googleSignInButton = findViewById(R.id.googleSignInButton);
         FirebaseApp.initializeApp(this);
+
+        //Check if a user has previously logged in using their google account
         firebaseAuth=FirebaseAuth.getInstance();
         mAuthListener=new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                //If there exists a signed in user
                 if(firebaseAuth.getCurrentUser() != null)
                 {
                     //User has already logged in,Jump to Appointment activity
                     FirebaseUser user=firebaseAuth.getCurrentUser();
+
+                    //Assign user details to LocalDB
                     LocalDB.setFullName(user.getDisplayName());
                     LocalDB.setEmail(user.getEmail());
                     LocalDB.setPhoneNumber(user.getPhoneNumber());
                     LocalDB.setProfilePicUri(user.getPhotoUrl());
+
+                    //Jump to appointment activity
                     Intent intent=new Intent(GoogleSignIn.this,Appoinments.class);
                     startActivity(intent);
                     finish();
@@ -75,6 +75,8 @@ public class GoogleSignIn extends AppCompatActivity implements GoogleApiClient.O
             }
         };
 
+
+        //OnClick listener of the google sign in button
         googleSignInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -100,13 +102,15 @@ public class GoogleSignIn extends AppCompatActivity implements GoogleApiClient.O
                 .build();
     }
 
+
+    //SignIn Function
     private void signIn() {
         Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
 
 
-
+    //Result handler of the sign in function
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -116,6 +120,7 @@ public class GoogleSignIn extends AppCompatActivity implements GoogleApiClient.O
             GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
             if(result.isSuccess())
             {
+                //Sign into google account
                 GoogleSignInAccount account=result.getSignInAccount();
                 firebaseAuthWithGoogle(account);
             }
@@ -126,6 +131,7 @@ public class GoogleSignIn extends AppCompatActivity implements GoogleApiClient.O
         }
     }
 
+    //Link the google account to firebase
     private void firebaseAuthWithGoogle(GoogleSignInAccount account) {
         AuthCredential credential = GoogleAuthProvider.getCredential(account.getIdToken(), null);
         firebaseAuth.signInWithCredential(credential)
@@ -136,16 +142,19 @@ public class GoogleSignIn extends AppCompatActivity implements GoogleApiClient.O
                             // Sign in success, update UI with the signed-in user's information;
                             FirebaseUser user = firebaseAuth.getCurrentUser();
 
+                            //Retrieve google account data and store it in LocalDB
                             assert user != null;
                             LocalDB.setFullName(user.getDisplayName());
                             LocalDB.setEmail(user.getEmail());
                             LocalDB.setPhoneNumber(user.getPhoneNumber());
                             LocalDB.setProfilePicUri(user.getPhotoUrl());
 
+                            //Continue user registration
                             Intent menuIntent = new Intent(GoogleSignIn.this, UserDetails.class);
                             startActivity(menuIntent);
                             finish();
-                        } else {
+                        }
+                        else {
                             // If sign in fails, display a message to the user.
                             Toast.makeText(GoogleSignIn.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();

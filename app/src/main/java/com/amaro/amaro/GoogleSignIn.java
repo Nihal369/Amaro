@@ -2,12 +2,14 @@ package com.amaro.amaro;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -51,9 +53,15 @@ public class GoogleSignIn extends AppCompatActivity implements GoogleApiClient.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_google_sign_in);
 
+
         if(isNetworkAvailable()) {
             //Decelerations
             googleSignInButton = findViewById(R.id.googleSignInButton);
+
+            TextView textView = (TextView) googleSignInButton.getChildAt(0);
+            textView.setTextColor(Color.BLACK);
+            textView.setText("Sign In With Google");
+
             FirebaseApp.initializeApp(this);
 
             //Check if a user has previously logged in using their google account

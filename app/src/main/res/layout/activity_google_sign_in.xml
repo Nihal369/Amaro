@@ -4,42 +4,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
+    android:background="@drawable/gradient"
     tools:context="com.amaro.amaro.GoogleSignIn">
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="250dp"
+        android:layout_width="248dp"
         android:layout_height="250dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="36dp"
-        android:src="@drawable/amaro"
         android:contentDescription="@string/app_name"
+        android:src="@drawable/amaro"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <android.support.v7.widget.CardView
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/googleSignInButton"
+        android:background="@drawable/corner"
         android:layout_width="match_parent"
-        android:layout_height="191dp"
-        app:cardBackgroundColor="@color/colorPrimary"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="48dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginEnd="38dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent">
 
-        <com.google.android.gms.common.SignInButton
-            android:id="@+id/googleSignInButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:layout_marginEnd="40dp"
-            android:layout_gravity="center"
-            >
-        </com.google.android.gms.common.SignInButton>
-
-    </android.support.v7.widget.CardView>
+    </com.google.android.gms.common.SignInButton>
 
 
 </android.support.constraint.ConstraintLayout>

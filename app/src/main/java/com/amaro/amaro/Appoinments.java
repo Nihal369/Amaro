@@ -72,6 +72,7 @@ public class Appoinments extends AppCompatActivity {
         verticalLayout=findViewById(R.id.verticalLayout);
 
         //Set the name of the user
+        fullName = StringUtils.substringBefore(fullName," ");
         fullNameTextView.setText(fullName);
 
         //Set the profile pic of the user

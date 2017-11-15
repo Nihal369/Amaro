@@ -1,11 +1,16 @@
 package com.amaro.amaro;
 
+import android.*;
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -27,6 +32,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import es.dmoral.toasty.Toasty;
 
 public class GoogleSignIn extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
@@ -39,6 +47,8 @@ public class GoogleSignIn extends AppCompatActivity implements GoogleApiClient.O
 
 
     static String phoneNumber;
+
+    public static final int REQUEST_ID_MULTIPLE_PERMISSIONS = 1;
 
 
     @Override
@@ -55,6 +65,9 @@ public class GoogleSignIn extends AppCompatActivity implements GoogleApiClient.O
 
 
         if(isNetworkAvailable()) {
+
+            requestPermissions();
+
             //Decelerations
             googleSignInButton = findViewById(R.id.googleSignInButton);
 
@@ -108,7 +121,7 @@ public class GoogleSignIn extends AppCompatActivity implements GoogleApiClient.O
                     .enableAutoManage(this, new GoogleApiClient.OnConnectionFailedListener() {
                         @Override
                         public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-                            Toasty.error(GoogleSignIn.this, "Sign in failed", Toast.LENGTH_SHORT).show();
+                            Toasty.error(GoogleSignIn.this, "Please Check Your Internet Connection and Try Again", Toast.LENGTH_SHORT).show();
                         }
                     })
                     .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
@@ -144,7 +157,7 @@ public class GoogleSignIn extends AppCompatActivity implements GoogleApiClient.O
             }
             else
             {
-                Toasty.error(this, "Sign in failed", Toast.LENGTH_SHORT).show();
+                Toasty.error(this, "Please Check Your Internet Connection and Try Again", Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -176,12 +189,13 @@ public class GoogleSignIn extends AppCompatActivity implements GoogleApiClient.O
                         }
                         else {
                             // If sign in fails, display a message to the user.
-                            Toasty.error(GoogleSignIn.this, "Authentication failed.",
+                            Toasty.error(GoogleSignIn.this, "Please Check Your Internet Connection and Try Again",
                                     Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
     }
+
 
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
@@ -194,6 +208,41 @@ public class GoogleSignIn extends AppCompatActivity implements GoogleApiClient.O
         assert connectivityManager != null;
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
+
+    private void requestPermissions()
+    {
+        int account = ContextCompat.checkSelfPermission(this, Manifest.permission.GET_ACCOUNTS);
+        int read_sms = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_SMS);
+        int receive_sms = ContextCompat.checkSelfPermission(this, Manifest.permission.RECEIVE_SMS);
+        int network_state = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_NETWORK_STATE);
+        int read_Cal = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CALENDAR);
+        int write_cal = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_CALENDAR);
+        List<String> listPermissionsNeeded = new ArrayList<>();
+
+        if (account != PackageManager.PERMISSION_GRANTED) {
+            listPermissionsNeeded.add(Manifest.permission.GET_ACCOUNTS);
+        }
+
+        if (read_sms != PackageManager.PERMISSION_GRANTED) {
+            listPermissionsNeeded.add(Manifest.permission.READ_SMS);
+        }
+
+        if (receive_sms != PackageManager.PERMISSION_GRANTED) {
+            listPermissionsNeeded.add(Manifest.permission.RECEIVE_SMS);
+        }
+
+        if (network_state != PackageManager.PERMISSION_GRANTED) {
+            listPermissionsNeeded.add(Manifest.permission.ACCESS_NETWORK_STATE);
+        }
+
+        if (read_Cal != PackageManager.PERMISSION_GRANTED) {
+            listPermissionsNeeded.add(Manifest.permission.READ_CALENDAR);
+        }
+
+        if (network_state != PackageManager.PERMISSION_GRANTED) {
+            listPermissionsNeeded.add(Manifest.permission.WRITE_CALENDAR);
+        }
     }
 
 }

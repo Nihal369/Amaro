@@ -59,32 +59,34 @@ public class Appoinments extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_appoinments);
 
-        //Retrieve data from LocalDB
-        fullName=LocalDB.getFullName();
-        email=LocalDB.getEmail();
-        phoneNumber=LocalDB.getEmail();
-        profilePicUrl=LocalDB.getProfilePicUri();
+        if(isNetworkAvailable()) {
+            //Retrieve data from LocalDB
+            fullName = LocalDB.getFullName();
+            email = LocalDB.getEmail();
+            phoneNumber = LocalDB.getEmail();
+            profilePicUrl = LocalDB.getProfilePicUri();
 
-        //View declerations
-        profilePic=findViewById(R.id.appoinmentProfilePic);
-        fullNameTextView=findViewById(R.id.userNameTextView);
-        appointmentTextView =findViewById(R.id.appoinmentTextView);
-        verticalLayout=findViewById(R.id.verticalLayout);
+            //View declerations
+            profilePic = findViewById(R.id.appoinmentProfilePic);
+            fullNameTextView = findViewById(R.id.userNameTextView);
+            appointmentTextView = findViewById(R.id.appoinmentTextView);
+            verticalLayout = findViewById(R.id.verticalLayout);
 
-        //Set the name of the user
-        fullName = StringUtils.substringBefore(fullName," ");
-        fullNameTextView.setText(fullName);
-
-        //Set the profile pic of the user
-        Picasso.with(this).
-                load(profilePicUrl)
-                .placeholder(R.drawable.profpic)
-                .error(R.drawable.profpic)
-                .transform(new CircleTransform())
-                .into(profilePic);
+            //Set the name of the user
+            fullName = StringUtils.substringBefore(fullName, " ");
+            fullNameTextView.setText(fullName);
 
 
-        if(!isNetworkAvailable())
+            //Set the profile pic of the user
+            Picasso.with(this).
+                    load(profilePicUrl)
+                    .placeholder(R.drawable.profpic)
+                    .error(R.drawable.profpic)
+                    .transform(new CircleTransform())
+                    .into(profilePic);
+        }
+
+        else
         {
             Toasty.warning(Appoinments.this,"Please Check Your Internet Connection and Try Again", Toast.LENGTH_SHORT).show();
         }
@@ -95,8 +97,10 @@ public class Appoinments extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         //Refresh the appointment data
-        getAppointmentFromFirebase();
-        if(!isNetworkAvailable())
+        if(isNetworkAvailable()) {
+            getAppointmentFromFirebase();
+        }
+        else
         {
             Toasty.warning(Appoinments.this,"Please Check Your Internet Connection and Try Again", Toast.LENGTH_SHORT).show();
         }
@@ -106,14 +110,26 @@ public class Appoinments extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         //Set the dynamic layout as blank
-        verticalLayout.removeAllViews();
+        if(isNetworkAvailable()) {
+            verticalLayout.removeAllViews();
+        }
+        else
+        {
+            Toasty.warning(Appoinments.this,"Please Check Your Internet Connection and Try Again", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
     protected void onStop() {
         super.onStop();
         //Set the dynamic layout as blank
-        verticalLayout.removeAllViews();
+        if(isNetworkAvailable()) {
+            verticalLayout.removeAllViews();
+        }
+        else
+        {
+            Toasty.warning(Appoinments.this,"Please Check Your Internet Connection and Try Again", Toast.LENGTH_SHORT).show();
+        }
     }
 
 

@@ -59,7 +59,6 @@
         android:layout_width="match_parent"
         android:layout_height="352dp"
         android:layout_marginBottom="8dp"
-        android:background="@drawable/gradient"
         app:layout_constraintBottom_toTopOf="@+id/bookAppoinmentCard"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"

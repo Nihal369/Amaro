@@ -9,6 +9,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:context="com.amaro.amaro.DoctorList"
+    android:background="@drawable/gradient"
     android:orientation="vertical">
 
     <android.support.v7.widget.CardView
@@ -18,7 +19,7 @@
         android:layout_margin="16dp"
         android:tag="doc1"
         android:onClick="goToDoctorPage"
-        app:cardBackgroundColor="@color/colorPrimary"
+        app:cardBackgroundColor="@color/background"
         >
 
         <ImageView
@@ -63,7 +64,7 @@
         android:background="@drawable/gradient"
         android:onClick="goToDoctorPage"
         android:tag="doc2"
-        app:cardBackgroundColor="@color/colorPrimary">
+        app:cardBackgroundColor="@color/background">
 
         <ImageView
             android:id="@+id/doctorImage2"
@@ -99,11 +100,10 @@
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/gradient"
         android:layout_margin="16dp"
         android:tag="doc3"
         android:onClick="goToDoctorPage"
-        app:cardBackgroundColor="@color/colorPrimary"
+        app:cardBackgroundColor="@color/background"
        >
 
         <ImageView

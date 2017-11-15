@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.amaro.amaro.DoctorPage"
-    android:background="@color/background"
+    android:background="@drawable/gradient"
     >
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
@@ -33,7 +33,7 @@
             android:layout_marginTop="292dp"
             android:fontFamily="monospace"
             android:text="@string/doc2"
-            android:textColor="#fff"
+            android:textColor="#000"
             android:textSize="22sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -46,7 +46,7 @@
             android:layout_marginTop="320dp"
             android:fontFamily="monospace"
             android:text="@string/oncologist"
-            android:textColor="#e0e0e0"
+            android:textColor="#0f0f0f"
             android:textSize="19sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -57,7 +57,7 @@
             android:layout_width="match_parent"
             android:layout_height="160dp"
             android:layout_marginTop="356dp"
-            app:cardBackgroundColor="@color/background_dark"
+            app:cardBackgroundColor="@color/background"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="16dp"
@@ -77,7 +77,7 @@
                     android:layout_marginBottom="16dp"
                     android:fontFamily="monospace"
                     android:text="@string/nov_11"
-                    android:textColor="#fff"
+                    android:textColor="#000"
                     android:textSize="32sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -96,7 +96,7 @@
                     android:paddingRight="6dp"
                     android:paddingTop="3dp"
                     android:text="@string/ten"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="#000"
                     android:textSize="22sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -115,7 +115,7 @@
                     android:paddingRight="6dp"
                     android:paddingTop="3dp"
                     android:text="@string/eleven"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="#000"
                     android:textSize="22sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -134,7 +134,7 @@
                     android:paddingRight="6dp"
                     android:paddingTop="3dp"
                     android:text="@string/twelve"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="#000"
                     android:textSize="22sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -154,7 +154,7 @@
                     android:paddingRight="6dp"
                     android:paddingTop="3dp"
                     android:text="@string/fourteen"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="#000"
                     android:textSize="22sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -173,7 +173,7 @@
                     android:paddingRight="6dp"
                     android:paddingTop="3dp"
                     android:text="@string/fifteen"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="#000"
                     android:textSize="22sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -192,7 +192,7 @@
                     android:paddingRight="6dp"
                     android:paddingTop="3dp"
                     android:text="@string/sixteen"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="#000"
                     android:textSize="22sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -209,7 +209,7 @@
             android:layout_width="match_parent"
             android:layout_height="160dp"
             android:layout_marginTop="556dp"
-            app:cardBackgroundColor="@color/background_dark"
+            app:cardBackgroundColor="@color/background"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="16dp"
@@ -229,7 +229,7 @@
                     android:layout_marginBottom="16dp"
                     android:fontFamily="monospace"
                     android:text="@string/nov_11"
-                    android:textColor="#fff"
+                    android:textColor="#000"
                     android:textSize="32sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -248,7 +248,7 @@
                     android:paddingRight="6dp"
                     android:paddingTop="3dp"
                     android:text="@string/ten"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="#000"
                     android:textSize="22sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -267,7 +267,7 @@
                     android:paddingRight="6dp"
                     android:paddingTop="3dp"
                     android:text="@string/eleven"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="#000"
                     android:textSize="22sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -286,7 +286,7 @@
                     android:paddingRight="6dp"
                     android:paddingTop="3dp"
                     android:text="@string/twelve"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="#000"
                     android:textSize="22sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -306,7 +306,7 @@
                     android:paddingRight="6dp"
                     android:paddingTop="3dp"
                     android:text="@string/fourteen"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="#000"
                     android:textSize="22sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -325,7 +325,7 @@
                     android:paddingRight="6dp"
                     android:paddingTop="3dp"
                     android:text="@string/fifteen"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="#000"
                     android:textSize="22sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -344,7 +344,7 @@
                     android:paddingRight="6dp"
                     android:paddingTop="3dp"
                     android:text="@string/sixteen"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="#000"
                     android:textSize="22sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -359,7 +359,7 @@
             android:layout_width="match_parent"
             android:layout_height="160dp"
             android:layout_marginTop="756dp"
-            app:cardBackgroundColor="@color/background_dark"
+            app:cardBackgroundColor="@color/background"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="16dp"
@@ -379,7 +379,7 @@
                     android:layout_marginBottom="16dp"
                     android:fontFamily="monospace"
                     android:text="@string/nov_11"
-                    android:textColor="#fff"
+                    android:textColor="#000"
                     android:textSize="32sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -398,7 +398,7 @@
                     android:paddingRight="6dp"
                     android:paddingTop="3dp"
                     android:text="@string/ten"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="#000"
                     android:textSize="22sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -417,7 +417,7 @@
                     android:paddingRight="6dp"
                     android:paddingTop="3dp"
                     android:text="@string/eleven"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="#000"
                     android:textSize="22sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -436,7 +436,7 @@
                     android:paddingRight="6dp"
                     android:paddingTop="3dp"
                     android:text="@string/twelve"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="#000"
                     android:textSize="22sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -456,7 +456,7 @@
                     android:paddingRight="6dp"
                     android:paddingTop="3dp"
                     android:text="@string/fourteen"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="#000"
                     android:textSize="22sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -475,7 +475,7 @@
                     android:paddingRight="6dp"
                     android:paddingTop="3dp"
                     android:text="@string/fifteen"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="#000"
                     android:textSize="22sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -494,7 +494,7 @@
                     android:paddingRight="6dp"
                     android:paddingTop="3dp"
                     android:text="@string/sixteen"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="#000"
                     android:textSize="22sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -511,7 +511,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="160dp"
                 android:layout_marginTop="956dp"
-                app:cardBackgroundColor="@color/background_dark"
+                app:cardBackgroundColor="@color/background"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="16dp"
@@ -531,7 +531,7 @@
                         android:layout_marginBottom="16dp"
                         android:fontFamily="monospace"
                         android:text="@string/nov_11"
-                        android:textColor="#fff"
+                        android:textColor="#000"
                         android:textSize="32sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -550,7 +550,7 @@
                         android:paddingRight="6dp"
                         android:paddingTop="3dp"
                         android:text="@string/ten"
-                        android:textColor="@color/colorPrimary"
+                        android:textColor="#000"
                         android:textSize="22sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -569,7 +569,7 @@
                         android:paddingRight="6dp"
                         android:paddingTop="3dp"
                         android:text="@string/eleven"
-                        android:textColor="@color/colorPrimary"
+                        android:textColor="#000"
                         android:textSize="22sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -588,7 +588,7 @@
                         android:paddingRight="6dp"
                         android:paddingTop="3dp"
                         android:text="@string/twelve"
-                        android:textColor="@color/colorPrimary"
+                        android:textColor="#000"
                         android:textSize="22sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -608,7 +608,7 @@
                         android:paddingRight="6dp"
                         android:paddingTop="3dp"
                         android:text="@string/fourteen"
-                        android:textColor="@color/colorPrimary"
+                        android:textColor="#000"
                         android:textSize="22sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -627,7 +627,7 @@
                         android:paddingRight="6dp"
                         android:paddingTop="3dp"
                         android:text="@string/fifteen"
-                        android:textColor="@color/colorPrimary"
+                        android:textColor="#000"
                         android:textSize="22sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -646,7 +646,7 @@
                         android:paddingRight="6dp"
                         android:paddingTop="3dp"
                         android:text="@string/sixteen"
-                        android:textColor="@color/colorPrimary"
+                        android:textColor="#000"
                         android:textSize="22sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />

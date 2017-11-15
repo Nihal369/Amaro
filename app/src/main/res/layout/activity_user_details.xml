@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
+    android:background="@drawable/gradient"
     tools:context="com.amaro.amaro.UserDetails">
 
 
@@ -31,7 +31,7 @@
         android:fontFamily="monospace"
         android:text="@string/full_name"
         android:textSize="18sp"
-        android:textColor="#fff"
+        android:textColor="#000"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -41,7 +41,9 @@
         android:layout_height="43dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
+        android:textColor="#000"
         android:layout_marginTop="212dp"
+        android:backgroundTint="@color/colorPrimary"
         android:hint="@string/full_name_hint"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -55,7 +57,7 @@
         android:layout_marginTop="268dp"
         android:fontFamily="monospace"
         android:text="@string/Birthday"
-        android:textColor="#fff"
+        android:textColor="#000"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -64,8 +66,10 @@
         android:id="@+id/datePicker"
         android:layout_width="wrap_content"
         android:layout_height="160dp"
-        android:layout_marginStart="4dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="300dp"
+        android:backgroundTint="#000"
+        android:backgroundTintMode="src_over"
         android:calendarViewShown="false"
         android:datePickerMode="spinner"
         app:layout_constraintStart_toStartOf="parent"
@@ -87,15 +91,22 @@
         <RadioButton
             android:id="@+id/maleRadio"
             android:layout_width="wrap_content"
+            android:shadowColor="#000"
             android:layout_height="wrap_content"
+            android:textColor="#000"
             android:layout_marginStart="16dp"
+            android:buttonTint="#000"
             android:checked="true"
             android:text="@string/Male" />
 
         <RadioButton
             android:id="@+id/femaleRadio"
             android:layout_width="wrap_content"
+            android:backgroundTint="#000"
             android:layout_height="wrap_content"
+            android:buttonTint="#000"
+            android:shadowColor="#000"
+            android:textColor="#000"
             android:layout_marginStart="16dp"
             android:text="@string/Female" />
 
@@ -107,7 +118,7 @@
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        app:cardBackgroundColor="@color/colorPrimaryDark"
+        app:cardBackgroundColor="@color/background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -119,7 +130,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/continue_string"
-            android:textColor="#fff"
+            android:textColor="#000"
             android:layout_gravity="center"
             android:textSize="20sp"
             android:fontFamily="monospace"

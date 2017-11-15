@@ -232,7 +232,7 @@ public class Appoinments extends AppCompatActivity {
                         150));
                 lp.setMargins(18, 20, 18, 20);
                 cardView.setLayoutParams(lp);
-                cardView.setCardBackgroundColor(0xff313445);
+                cardView.setCardBackgroundColor(0xffffffff);
                 cardView.setPadding(30, 30, 30, 30);
 
                 //Text view of the dynamic layout
@@ -242,18 +242,13 @@ public class Appoinments extends AppCompatActivity {
                 textView.setLayoutParams(layoutParams);
                 textView.setGravity(Gravity.CENTER);
                 textView.setText(s);
-                textView.setTextColor(0xffffffff); // hex color 0xAARRGGBB
+                textView.setTextColor(0xff000000); // hex color 0xAARRGGBB
                 textView.setTextSize(16);
                 textView.setTypeface(Typeface.create("monospace", Typeface.NORMAL));
 
                 //Add the text view to card view
                 cardView.addView(textView);
 
-                Animator spruceAnimator = new Spruce
-                        .SpruceBuilder(verticalLayout)
-                        .sortWith(new DefaultSort(/*interObjectDelay=*/50L))
-                        .animateWith(new Animator[]{DefaultAnimations.shrinkAnimator(verticalLayout, /*duration=*/800)})
-                        .start();
 
                 //Add the card view to linear layout
                 verticalLayout.addView(cardView);

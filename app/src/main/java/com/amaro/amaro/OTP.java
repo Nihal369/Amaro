@@ -1,6 +1,9 @@
 package com.amaro.amaro;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -68,6 +71,11 @@ public class OTP extends AppCompatActivity {
                 OTP.this,
                 mCallbacks);
 
+
+        if(!isNetworkAvailable())
+        {
+            Toasty.warning(OTP.this,"Please Check Your Internet Connection and Try Again", Toast.LENGTH_SHORT).show();
+        }
     }
 
     //Function attached to verify button
@@ -92,6 +100,14 @@ public class OTP extends AppCompatActivity {
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         OTP.this.finish();
+    }
+
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        assert connectivityManager != null;
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
 }

@@ -1,6 +1,9 @@
 package com.amaro.amaro;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -48,60 +51,65 @@ public class GoogleSignIn extends AppCompatActivity implements GoogleApiClient.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_google_sign_in);
 
-        //Decelerations
-        googleSignInButton = findViewById(R.id.googleSignInButton);
-        FirebaseApp.initializeApp(this);
+        if(isNetworkAvailable()) {
+            //Decelerations
+            googleSignInButton = findViewById(R.id.googleSignInButton);
+            FirebaseApp.initializeApp(this);
 
-        //Check if a user has previously logged in using their google account
-        firebaseAuth=FirebaseAuth.getInstance();
-        mAuthListener=new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                //If there exists a signed in user
-                if(firebaseAuth.getCurrentUser() != null)
-                {
-                    //User has already logged in,Jump to Appointment activity
-                    FirebaseUser user=firebaseAuth.getCurrentUser();
+            //Check if a user has previously logged in using their google account
+            firebaseAuth = FirebaseAuth.getInstance();
+            mAuthListener = new FirebaseAuth.AuthStateListener() {
+                @Override
+                public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                    //If there exists a signed in user
+                    if (firebaseAuth.getCurrentUser() != null) {
+                        //User has already logged in,Jump to Appointment activity
+                        FirebaseUser user = firebaseAuth.getCurrentUser();
 
-                    //Assign user details to LocalDB
-                    LocalDB.setFullName(user.getDisplayName());
-                    LocalDB.setEmail(user.getEmail());
-                    LocalDB.setPhoneNumber(user.getPhoneNumber());
-                    LocalDB.setProfilePicUri(user.getPhotoUrl());
+                        //Assign user details to LocalDB
+                        LocalDB.setFullName(user.getDisplayName());
+                        LocalDB.setEmail(user.getEmail());
+                        LocalDB.setPhoneNumber(user.getPhoneNumber());
+                        LocalDB.setProfilePicUri(user.getPhotoUrl());
 
-                    //Jump to appointment activity
-                    Intent intent=new Intent(GoogleSignIn.this,Appoinments.class);
-                    startActivity(intent);
-                    finish();
-                }
-            }
-        };
-
-
-        //OnClick listener of the google sign in button
-        googleSignInButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                signIn();
-            }
-        });
-
-        // Configure Google Sign In
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id))
-                .requestEmail()
-                .build();
-
-        // Build a GoogleApiClient with the options specified by gso.
-        mGoogleApiClient=new GoogleApiClient.Builder(this)
-                .enableAutoManage(this, new GoogleApiClient.OnConnectionFailedListener() {
-                    @Override
-                    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-                        Toasty.error(GoogleSignIn.this,"Sign in failed",Toast.LENGTH_SHORT).show();
+                        //Jump to appointment activity
+                        Intent intent = new Intent(GoogleSignIn.this, Appoinments.class);
+                        startActivity(intent);
+                        finish();
                     }
-                })
-                .addApi(Auth.GOOGLE_SIGN_IN_API,gso)
-                .build();
+                }
+            };
+
+
+            //OnClick listener of the google sign in button
+            googleSignInButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    signIn();
+                }
+            });
+
+            // Configure Google Sign In
+            GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                    .requestIdToken(getString(R.string.default_web_client_id))
+                    .requestEmail()
+                    .build();
+
+            // Build a GoogleApiClient with the options specified by gso.
+            mGoogleApiClient = new GoogleApiClient.Builder(this)
+                    .enableAutoManage(this, new GoogleApiClient.OnConnectionFailedListener() {
+                        @Override
+                        public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+                            Toasty.error(GoogleSignIn.this, "Sign in failed", Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
+                    .build();
+        }
+        else
+        {
+            Toasty.warning(GoogleSignIn.this,"Please Check Your Internet Connection and Try Again",Toast.LENGTH_SHORT).show();
+        }
     }
 
 
@@ -170,6 +178,14 @@ public class GoogleSignIn extends AppCompatActivity implements GoogleApiClient.O
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 
+    }
+
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        assert connectivityManager != null;
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
 }

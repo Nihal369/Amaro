@@ -1,18 +1,22 @@
 package com.amaro.amaro;
 
 import android.animation.Animator;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -29,6 +33,8 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+
+import es.dmoral.toasty.Toasty;
 
 public class Appoinments extends AppCompatActivity {
 
@@ -76,6 +82,11 @@ public class Appoinments extends AppCompatActivity {
                 .into(profilePic);
 
 
+        if(!isNetworkAvailable())
+        {
+            Toasty.warning(Appoinments.this,"Please Check Your Internet Connection and Try Again", Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     @Override
@@ -83,6 +94,10 @@ public class Appoinments extends AppCompatActivity {
         super.onResume();
         //Refresh the appointment data
         getAppointmentFromFirebase();
+        if(!isNetworkAvailable())
+        {
+            Toasty.warning(Appoinments.this,"Please Check Your Internet Connection and Try Again", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
@@ -249,6 +264,14 @@ public class Appoinments extends AppCompatActivity {
             appointmentTextView.setText(numberOfAppointments);
         }
 
+    }
+
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        assert connectivityManager != null;
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
     public void moveToDoctorList(View v)

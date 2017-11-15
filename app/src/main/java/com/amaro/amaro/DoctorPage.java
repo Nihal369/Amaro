@@ -1,6 +1,9 @@
 package com.amaro.amaro;
 
+import android.content.Context;
 import android.content.DialogInterface;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -47,6 +50,11 @@ public class DoctorPage extends AppCompatActivity{
         setDoctorPage();
 
         setDate();
+
+        if(!isNetworkAvailable())
+        {
+            Toasty.warning(DoctorPage.this,"Please Check Your Internet Connection and Try Again",Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void retrieveDataFromIntent()
@@ -192,225 +200,232 @@ public class DoctorPage extends AppCompatActivity{
                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                    @Override
                    public void onClick(DialogInterface dialogInterface, int i) {
-                       switch (view.getId())
+                       if(isNetworkAvailable())
                        {
+                       switch (view.getId()) {
                            case R.id.tenCard1:
                                //Make appointment
-                               Appoinments.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[0]),monthName[0]
-                                       ,"10:00",String.valueOf(year[0]));
+                               Appoinments.writeAppointmentToFirebase(getDocById(identificationTag), String.valueOf(dayOfMonth[0]), monthName[0]
+                                       , "10:00", String.valueOf(year[0]));
                                Toasty.info(DoctorPage.this,
-                                       "Appointment made for "+getDocById(identificationTag)+" at 10:00 on "+ dayOfMonth[0]+" "+monthName[0]+" "+year[0],
+                                       "Appointment made for " + getDocById(identificationTag) + " at 10:00 on " + dayOfMonth[0] + " " + monthName[0] + " " + year[0],
                                        Toast.LENGTH_LONG).show();
                                break;
 
                            case R.id.elevenCard1:
                                //Make appointment
-                               Appoinments.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[0]),monthName[0]
-                                       ,"11:00",String.valueOf(year[0]));
+                               Appoinments.writeAppointmentToFirebase(getDocById(identificationTag), String.valueOf(dayOfMonth[0]), monthName[0]
+                                       , "11:00", String.valueOf(year[0]));
                                Toasty.info(DoctorPage.this,
-                                       "Appointment made for "+getDocById(identificationTag)+" at 11:00 on "+ dayOfMonth[0]+" "+monthName[0]+" "+year[0],
+                                       "Appointment made for " + getDocById(identificationTag) + " at 11:00 on " + dayOfMonth[0] + " " + monthName[0] + " " + year[0],
                                        Toast.LENGTH_LONG).show();
                                break;
 
                            case R.id.twelveCard1:
                                //Make appointment
-                               Appoinments.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[0]),monthName[0]
-                                       ,"12:00",String.valueOf(year[0]));
+                               Appoinments.writeAppointmentToFirebase(getDocById(identificationTag), String.valueOf(dayOfMonth[0]), monthName[0]
+                                       , "12:00", String.valueOf(year[0]));
                                Toasty.info(DoctorPage.this,
-                                       "Appointment made for "+getDocById(identificationTag)+" at 12:00 on "+ dayOfMonth[0]+" "+monthName[0]+" "+year[0],
+                                       "Appointment made for " + getDocById(identificationTag) + " at 12:00 on " + dayOfMonth[0] + " " + monthName[0] + " " + year[0],
                                        Toast.LENGTH_LONG).show();
                                break;
 
                            case R.id.fourteenCard1:
                                //Make appointment
-                               Appoinments.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[0]),monthName[0]
-                                       ,"14:00",String.valueOf(year[0]));
+                               Appoinments.writeAppointmentToFirebase(getDocById(identificationTag), String.valueOf(dayOfMonth[0]), monthName[0]
+                                       , "14:00", String.valueOf(year[0]));
                                Toasty.info(DoctorPage.this,
-                                       "Appointment made for "+getDocById(identificationTag)+" at 14:00 on "+ dayOfMonth[0]+" "+monthName[0]+" "+year[0],
+                                       "Appointment made for " + getDocById(identificationTag) + " at 14:00 on " + dayOfMonth[0] + " " + monthName[0] + " " + year[0],
                                        Toast.LENGTH_LONG).show();
                                break;
 
                            case R.id.fifteenCard1:
                                //Make appointment
-                               Appoinments.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[0]),monthName[0]
-                                       ,"15:00",String.valueOf(year[0]));
+                               Appoinments.writeAppointmentToFirebase(getDocById(identificationTag), String.valueOf(dayOfMonth[0]), monthName[0]
+                                       , "15:00", String.valueOf(year[0]));
                                Toasty.info(DoctorPage.this,
-                                       "Appointment made for "+getDocById(identificationTag)+" at 15:00 on "+ dayOfMonth[0]+" "+monthName[0]+" "+year[0],
+                                       "Appointment made for " + getDocById(identificationTag) + " at 15:00 on " + dayOfMonth[0] + " " + monthName[0] + " " + year[0],
                                        Toast.LENGTH_LONG).show();
                                break;
 
                            case R.id.sixteenCard1:
                                //Make appointment
-                               Appoinments.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[0]),monthName[0]
-                                       ,"16:00",String.valueOf(year[0]));
+                               Appoinments.writeAppointmentToFirebase(getDocById(identificationTag), String.valueOf(dayOfMonth[0]), monthName[0]
+                                       , "16:00", String.valueOf(year[0]));
                                Toasty.info(DoctorPage.this,
-                                       "Appointment made for "+getDocById(identificationTag)+" at 16:00 on "+ dayOfMonth[0]+" "+monthName[0]+" "+year[0],
+                                       "Appointment made for " + getDocById(identificationTag) + " at 16:00 on " + dayOfMonth[0] + " " + monthName[0] + " " + year[0],
                                        Toast.LENGTH_LONG).show();
                                break;
 
                            case R.id.tenCard2:
                                //Make appointment
-                               Appoinments.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[1]),monthName[1]
-                                       ,"10:00",String.valueOf(year[1]));
+                               Appoinments.writeAppointmentToFirebase(getDocById(identificationTag), String.valueOf(dayOfMonth[1]), monthName[1]
+                                       , "10:00", String.valueOf(year[1]));
                                Toasty.info(DoctorPage.this,
-                                       "Appointment made for "+getDocById(identificationTag)+" at 10:00 on "+ dayOfMonth[1]+" "+monthName[1]+" "+year[1],
+                                       "Appointment made for " + getDocById(identificationTag) + " at 10:00 on " + dayOfMonth[1] + " " + monthName[1] + " " + year[1],
                                        Toast.LENGTH_LONG).show();
                                break;
 
                            case R.id.elevenCard2:
                                //Make appointment
-                               Appoinments.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[1]),monthName[1]
-                                       ,"11:00",String.valueOf(year[1]));
+                               Appoinments.writeAppointmentToFirebase(getDocById(identificationTag), String.valueOf(dayOfMonth[1]), monthName[1]
+                                       , "11:00", String.valueOf(year[1]));
                                Toasty.info(DoctorPage.this,
-                                       "Appointment made for "+getDocById(identificationTag)+" at 11:00 on "+ dayOfMonth[1]+" "+monthName[1]+" "+year[1],
+                                       "Appointment made for " + getDocById(identificationTag) + " at 11:00 on " + dayOfMonth[1] + " " + monthName[1] + " " + year[1],
                                        Toast.LENGTH_LONG).show();
                                break;
 
                            case R.id.twelveCard2:
                                //Make appointment
-                               Appoinments.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[1]),monthName[1]
-                                       ,"12:00",String.valueOf(year[1]));
+                               Appoinments.writeAppointmentToFirebase(getDocById(identificationTag), String.valueOf(dayOfMonth[1]), monthName[1]
+                                       , "12:00", String.valueOf(year[1]));
                                Toasty.info(DoctorPage.this,
-                                       "Appointment made for "+getDocById(identificationTag)+" at 12:00 on "+ dayOfMonth[1]+" "+monthName[1]+" "+year[1],
+                                       "Appointment made for " + getDocById(identificationTag) + " at 12:00 on " + dayOfMonth[1] + " " + monthName[1] + " " + year[1],
                                        Toast.LENGTH_LONG).show();
                                break;
 
                            case R.id.fourteenCard2:
                                //Make appointment
-                               Appoinments.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[1]),monthName[1]
-                                       ,"14:00",String.valueOf(year[1]));
+                               Appoinments.writeAppointmentToFirebase(getDocById(identificationTag), String.valueOf(dayOfMonth[1]), monthName[1]
+                                       , "14:00", String.valueOf(year[1]));
                                Toasty.info(DoctorPage.this,
-                                       "Appointment made for "+getDocById(identificationTag)+" at 14:00 on "+ dayOfMonth[1]+" "+monthName[1]+" "+year[1],
+                                       "Appointment made for " + getDocById(identificationTag) + " at 14:00 on " + dayOfMonth[1] + " " + monthName[1] + " " + year[1],
                                        Toast.LENGTH_LONG).show();
                                break;
 
                            case R.id.fifteenCard2:
                                //Make appointment
-                               Appoinments.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[1]),monthName[1]
-                                       ,"15:00",String.valueOf(year[1]));
+                               Appoinments.writeAppointmentToFirebase(getDocById(identificationTag), String.valueOf(dayOfMonth[1]), monthName[1]
+                                       , "15:00", String.valueOf(year[1]));
                                Toasty.info(DoctorPage.this,
-                                       "Appointment made for "+getDocById(identificationTag)+" at 15:00 on "+ dayOfMonth[1]+" "+monthName[1]+" "+year[1],
+                                       "Appointment made for " + getDocById(identificationTag) + " at 15:00 on " + dayOfMonth[1] + " " + monthName[1] + " " + year[1],
                                        Toast.LENGTH_LONG).show();
                                break;
 
                            case R.id.sixteenCard2:
                                //Make appointment
-                               Appoinments.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[1]),monthName[1]
-                                       ,"16:00",String.valueOf(year[1]));
+                               Appoinments.writeAppointmentToFirebase(getDocById(identificationTag), String.valueOf(dayOfMonth[1]), monthName[1]
+                                       , "16:00", String.valueOf(year[1]));
                                Toasty.info(DoctorPage.this,
-                                       "Appointment made for "+getDocById(identificationTag)+" at 16:00 on "+ dayOfMonth[1]+" "+monthName[1]+" "+year[1],
+                                       "Appointment made for " + getDocById(identificationTag) + " at 16:00 on " + dayOfMonth[1] + " " + monthName[1] + " " + year[1],
                                        Toast.LENGTH_LONG).show();
                                break;
 
                            case R.id.tenCard3:
                                //Make appointment
-                               Appoinments.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[2]),monthName[2]
-                                       ,"10:00",String.valueOf(year[2]));
+                               Appoinments.writeAppointmentToFirebase(getDocById(identificationTag), String.valueOf(dayOfMonth[2]), monthName[2]
+                                       , "10:00", String.valueOf(year[2]));
                                Toasty.info(DoctorPage.this,
-                                       "Appointment made for "+getDocById(identificationTag)+" at 10:00 on "+ dayOfMonth[2]+" "+monthName[2]+" "+year[2],
+                                       "Appointment made for " + getDocById(identificationTag) + " at 10:00 on " + dayOfMonth[2] + " " + monthName[2] + " " + year[2],
                                        Toast.LENGTH_LONG).show();
                                break;
 
                            case R.id.elevenCard3:
                                //Make appointment
-                               Appoinments.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[2]),monthName[2]
-                                       ,"11:00",String.valueOf(year[2]));
+                               Appoinments.writeAppointmentToFirebase(getDocById(identificationTag), String.valueOf(dayOfMonth[2]), monthName[2]
+                                       , "11:00", String.valueOf(year[2]));
                                Toasty.info(DoctorPage.this,
-                                       "Appointment made for "+getDocById(identificationTag)+" at 11:00 on "+ dayOfMonth[2]+" "+monthName[2]+" "+year[2],
+                                       "Appointment made for " + getDocById(identificationTag) + " at 11:00 on " + dayOfMonth[2] + " " + monthName[2] + " " + year[2],
                                        Toast.LENGTH_LONG).show();
                                break;
 
                            case R.id.twelveCard3:
                                //Make appointment
-                               Appoinments.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[2]),monthName[2]
-                                       ,"12:00",String.valueOf(year[2]));
+                               Appoinments.writeAppointmentToFirebase(getDocById(identificationTag), String.valueOf(dayOfMonth[2]), monthName[2]
+                                       , "12:00", String.valueOf(year[2]));
                                Toasty.info(DoctorPage.this,
-                                       "Appointment made for "+getDocById(identificationTag)+" at 12:00 on "+ dayOfMonth[2]+" "+monthName[2]+" "+year[2],
+                                       "Appointment made for " + getDocById(identificationTag) + " at 12:00 on " + dayOfMonth[2] + " " + monthName[2] + " " + year[2],
                                        Toast.LENGTH_LONG).show();
                                break;
 
                            case R.id.fourteenCard3:
                                //Make appointment
-                               Appoinments.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[2]),monthName[2]
-                                       ,"14:00",String.valueOf(year[2]));
+                               Appoinments.writeAppointmentToFirebase(getDocById(identificationTag), String.valueOf(dayOfMonth[2]), monthName[2]
+                                       , "14:00", String.valueOf(year[2]));
                                Toasty.info(DoctorPage.this,
-                                       "Appointment made for "+getDocById(identificationTag)+" at 14:00 on "+ dayOfMonth[2]+" "+monthName[2]+" "+year[2],
+                                       "Appointment made for " + getDocById(identificationTag) + " at 14:00 on " + dayOfMonth[2] + " " + monthName[2] + " " + year[2],
                                        Toast.LENGTH_LONG).show();
                                break;
 
                            case R.id.fifteenCard3:
                                //Make appointment
-                               Appoinments.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[2]),monthName[2]
-                                       ,"15:00",String.valueOf(year[2]));
+                               Appoinments.writeAppointmentToFirebase(getDocById(identificationTag), String.valueOf(dayOfMonth[2]), monthName[2]
+                                       , "15:00", String.valueOf(year[2]));
                                Toasty.info(DoctorPage.this,
-                                       "Appointment made for "+getDocById(identificationTag)+" at 15:00 on "+ dayOfMonth[2]+" "+monthName[2]+" "+year[2],
+                                       "Appointment made for " + getDocById(identificationTag) + " at 15:00 on " + dayOfMonth[2] + " " + monthName[2] + " " + year[2],
                                        Toast.LENGTH_LONG).show();
                                break;
 
                            case R.id.sixteenCard3:
                                //Make appointment
-                               Appoinments.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[2]),monthName[2]
-                                       ,"16:00",String.valueOf(year[2]));
+                               Appoinments.writeAppointmentToFirebase(getDocById(identificationTag), String.valueOf(dayOfMonth[2]), monthName[2]
+                                       , "16:00", String.valueOf(year[2]));
                                Toasty.info(DoctorPage.this,
-                                       "Appointment made for "+getDocById(identificationTag)+" at 16:00 on "+ dayOfMonth[2]+" "+monthName[2]+" "+year[2],
+                                       "Appointment made for " + getDocById(identificationTag) + " at 16:00 on " + dayOfMonth[2] + " " + monthName[2] + " " + year[2],
                                        Toast.LENGTH_LONG).show();
                                break;
 
                            case R.id.tenCard4:
                                //Make appointment
-                               Appoinments.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[3]),monthName[3]
-                                       ,"10:00",String.valueOf(year[3]));
+                               Appoinments.writeAppointmentToFirebase(getDocById(identificationTag), String.valueOf(dayOfMonth[3]), monthName[3]
+                                       , "10:00", String.valueOf(year[3]));
                                Toasty.info(DoctorPage.this,
-                                       "Appointment made for "+getDocById(identificationTag)+" at 10:00 on "+ dayOfMonth[3]+" "+monthName[3]+" "+year[3],
+                                       "Appointment made for " + getDocById(identificationTag) + " at 10:00 on " + dayOfMonth[3] + " " + monthName[3] + " " + year[3],
                                        Toast.LENGTH_LONG).show();
                                break;
 
                            case R.id.elevenCard4:
                                //Make appointment
-                               Appoinments.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[3]),monthName[3]
-                                       ,"11:00",String.valueOf(year[3]));
+                               Appoinments.writeAppointmentToFirebase(getDocById(identificationTag), String.valueOf(dayOfMonth[3]), monthName[3]
+                                       , "11:00", String.valueOf(year[3]));
                                Toasty.info(DoctorPage.this,
-                                       "Appointment made for "+getDocById(identificationTag)+" at 11:00 on "+ dayOfMonth[3]+" "+monthName[3]+" "+year[3],
+                                       "Appointment made for " + getDocById(identificationTag) + " at 11:00 on " + dayOfMonth[3] + " " + monthName[3] + " " + year[3],
                                        Toast.LENGTH_LONG).show();
                                break;
 
                            case R.id.twelveCard4:
                                //Make appointment
-                               Appoinments.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[3]),monthName[3]
-                                       ,"12:00",String.valueOf(year[3]));
+                               Appoinments.writeAppointmentToFirebase(getDocById(identificationTag), String.valueOf(dayOfMonth[3]), monthName[3]
+                                       , "12:00", String.valueOf(year[3]));
                                Toasty.info(DoctorPage.this,
-                                       "Appointment made for "+getDocById(identificationTag)+" at 12:00 on "+ dayOfMonth[3]+" "+monthName[3]+" "+year[3],
+                                       "Appointment made for " + getDocById(identificationTag) + " at 12:00 on " + dayOfMonth[3] + " " + monthName[3] + " " + year[3],
                                        Toast.LENGTH_LONG).show();
                                break;
 
                            case R.id.fourteenCard4:
                                //Make appointment
-                               Appoinments.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[3]),monthName[3]
-                                       ,"14:00",String.valueOf(year[3]));
+                               Appoinments.writeAppointmentToFirebase(getDocById(identificationTag), String.valueOf(dayOfMonth[3]), monthName[3]
+                                       , "14:00", String.valueOf(year[3]));
                                Toasty.info(DoctorPage.this,
-                                       "Appointment made for "+getDocById(identificationTag)+" at 14:00 on "+ dayOfMonth[3]+" "+monthName[3]+" "+year[3],
+                                       "Appointment made for " + getDocById(identificationTag) + " at 14:00 on " + dayOfMonth[3] + " " + monthName[3] + " " + year[3],
                                        Toast.LENGTH_LONG).show();
                                break;
 
                            case R.id.fifteenCard4:
                                //Make appointment
-                               Appoinments.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[3]),monthName[3]
-                                       ,"15:00",String.valueOf(year[3]));
+                               Appoinments.writeAppointmentToFirebase(getDocById(identificationTag), String.valueOf(dayOfMonth[3]), monthName[3]
+                                       , "15:00", String.valueOf(year[3]));
                                Toasty.info(DoctorPage.this,
-                                       "Appointment made for "+getDocById(identificationTag)+" at 15:00 on "+ dayOfMonth[3]+" "+monthName[3]+" "+year[3],
+                                       "Appointment made for " + getDocById(identificationTag) + " at 15:00 on " + dayOfMonth[3] + " " + monthName[3] + " " + year[3],
                                        Toast.LENGTH_LONG).show();
                                break;
 
                            case R.id.sixteenCard4:
                                //Make appointment
-                               Appoinments.writeAppointmentToFirebase(getDocById(identificationTag),String.valueOf(dayOfMonth[3]),monthName[3]
-                                       ,"16:00",String.valueOf(year[3]));
+                               Appoinments.writeAppointmentToFirebase(getDocById(identificationTag), String.valueOf(dayOfMonth[3]), monthName[3]
+                                       , "16:00", String.valueOf(year[3]));
                                Toasty.info(DoctorPage.this,
-                                       "Appointment made for "+getDocById(identificationTag)+" at 15:00 on "+ dayOfMonth[3]+" "+monthName[3]+" "+year[3],
+                                       "Appointment made for " + getDocById(identificationTag) + " at 15:00 on " + dayOfMonth[3] + " " + monthName[3] + " " + year[3],
                                        Toast.LENGTH_LONG).show();
                                break;
+                            }
 
                        }
+                       else
+                       {
+                           Toasty.warning(DoctorPage.this,"Please Check Your Internet Connection and Try Again",Toast.LENGTH_SHORT).show();
+                       }
+
                    }
                })
                .setNegativeButton("No",null).show();
@@ -428,4 +443,13 @@ public class DoctorPage extends AppCompatActivity{
             default:return "Dr. Steve Becker";
         }
     }
+
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        assert connectivityManager != null;
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
+
 }

@@ -1,6 +1,9 @@
 package com.amaro.amaro;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,8 +11,12 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
+import android.widget.Toast;
+
 import com.squareup.picasso.Picasso;
 import java.text.ParseException;
+
+import es.dmoral.toasty.Toasty;
 
 
 public class UserDetails extends AppCompatActivity {
@@ -55,24 +62,34 @@ public class UserDetails extends AppCompatActivity {
 
     //Retrieve user details and move to next activity
     public void OnClick(View view) throws ParseException {
+        if(isNetworkAvailable()) {
+            day = datePicker.getDayOfMonth();
+            month = datePicker.getMonth();
+            year = datePicker.getYear();
 
-       day=datePicker.getDayOfMonth();
-       month=datePicker.getMonth();
-       year=datePicker.getYear();
+            dateString = day + "/" + month + "/" + year;
 
-       dateString = day + "/" + month + "/"+year;
+            if (radioGroup.getCheckedRadioButtonId() == R.id.maleRadio) {
+                gender = "Male";
+            } else {
+                gender = "Female";
+            }
 
-       if(radioGroup.getCheckedRadioButtonId()==R.id.maleRadio)
-       {
-           gender="Male";
-       }
-       else
-       {
-           gender="Female";
-       }
+            Intent intent = new Intent(UserDetails.this, PhoneNumber.class);
+            startActivity(intent);
+        }
+        else
+        {
+            Toasty.warning(UserDetails.this,"Please Check Your Internet Connection and Try Again", Toast.LENGTH_SHORT).show();
+        }
+    }
 
-       Intent intent=new Intent(UserDetails.this,PhoneNumber.class);
-       startActivity(intent);
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        assert connectivityManager != null;
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
 }

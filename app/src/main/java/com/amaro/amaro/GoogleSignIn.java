@@ -55,7 +55,13 @@ public class GoogleSignIn extends AppCompatActivity implements GoogleApiClient.O
     protected void onStart() {
         super.onStart();
         //Add a listener to check for a google account during app start
-        firebaseAuth.addAuthStateListener(mAuthListener);
+        if(isNetworkAvailable()) {
+            firebaseAuth.addAuthStateListener(mAuthListener);
+        }
+        else
+        {
+            Toasty.warning(GoogleSignIn.this,"Please Check Your Internet Connection and Try Again",Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override

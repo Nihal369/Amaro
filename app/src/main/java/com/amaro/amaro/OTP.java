@@ -35,7 +35,7 @@ public class OTP extends AppCompatActivity {
         setContentView(R.layout.activity_otp);
 
 
-        sentNumber="";
+        sentNumber="INVALID";
 
         //Check for the OTP
         mCallbacks=new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {

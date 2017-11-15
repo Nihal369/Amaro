@@ -68,6 +68,8 @@
         android:layout_height="160dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="300dp"
+        android:calendarTextColor="#000"
+        android:spinnersShown="true"
         android:backgroundTint="#000"
         android:backgroundTintMode="src_over"
         android:calendarViewShown="false"

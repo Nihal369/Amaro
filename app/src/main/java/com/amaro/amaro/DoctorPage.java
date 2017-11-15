@@ -2,6 +2,7 @@ package com.amaro.amaro;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.v7.app.AlertDialog;
@@ -207,6 +208,7 @@ public class DoctorPage extends AppCompatActivity{
                                //Make appointment
                                Appoinments.writeAppointmentToFirebase(getDocById(identificationTag), String.valueOf(dayOfMonth[0]), monthName[0]
                                        , "10:00", String.valueOf(year[0]));
+                               addEventToCalendar(year[0],month[0],dayOfMonth[0],10,"Appointment With "+getDocById(identificationTag));
                                Toasty.info(DoctorPage.this,
                                        "Appointment made for " + getDocById(identificationTag) + " at 10:00 on " + dayOfMonth[0] + " " + monthName[0] + " " + year[0],
                                        Toast.LENGTH_LONG).show();
@@ -431,9 +433,21 @@ public class DoctorPage extends AppCompatActivity{
                .setNegativeButton("No",null).show();
     }
 
+    //Function that adds event to calendar
+    private void addEventToCalendar(int year,int month,int day,int hour,String appointmentWithDoctor)
+    {
+        Calendar cal = Calendar.getInstance();
+        cal.set(year,month,day,hour,0);
+        Intent intent = new Intent(Intent.ACTION_EDIT);
+        intent.setType("vnd.android.cursor.item/event");
+        intent.putExtra("beginTime", cal.getTimeInMillis());
+        intent.putExtra("endTime", cal.getTimeInMillis()+3600000);
+        intent.putExtra("title", appointmentWithDoctor);
+        startActivity(intent);
+    }
 
     //Get doctor name by passing the identification tag
-    String getDocById(String id)
+    private String getDocById(String id)
     {
         switch (id)
         {

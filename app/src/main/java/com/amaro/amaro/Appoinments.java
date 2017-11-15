@@ -29,6 +29,7 @@ import com.willowtreeapps.spruce.sort.DefaultSort;
 
 import org.apache.commons.lang3.StringUtils;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -265,6 +266,7 @@ public class Appoinments extends AppCompatActivity {
         }
 
     }
+
 
     private boolean isNetworkAvailable() {
         ConnectivityManager connectivityManager

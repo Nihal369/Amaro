@@ -1,89 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient"
+    android:background="@color/colorPrimary"
     tools:context="com.amaro.amaro.Appoinments">
 
-    <ImageView
-        android:id="@+id/appoinmentProfilePic"
-        android:layout_width="130dp"
-        android:layout_height="130dp"
-        android:layout_gravity="end"
-        android:layout_margin="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="32dp"
-        android:contentDescription="@string/profile_pic"
-        android:src="@drawable/profpic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/userNameTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="monospace"
-        android:text="@string/full_name"
-        android:textColor="#000"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/appoinmentProfilePic"
-        app:layout_constraintHorizontal_bias="0.115"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/appoinmentTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:fontFamily="monospace"
-        android:text="@string/appoinment"
-        android:textColor="#424242"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/appoinmentProfilePic"
-        app:layout_constraintHorizontal_bias="0.268"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userNameTextView" />
-
-
-    <ScrollView
-        android:id="@+id/scrollView2"
+    <android.support.v7.widget.CardView
+        android:id="@+id/profileCard"
         android:layout_width="match_parent"
-        android:layout_height="352dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/bookAppoinmentCard"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appoinmentProfilePic">
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:layout_gravity="center"
+        app:cardBackgroundColor="@color/colorPrimary">
 
-        <LinearLayout
-            android:id="@+id/verticalLayout"
+        <ImageView
+            android:id="@+id/appoinmentProfilePic"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_gravity="end"
+            android:layout_margin="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="32dp"
+            android:contentDescription="@string/profile_pic"
+            android:src="@drawable/profpic" />
+
+        <TextView
+            android:id="@+id/userNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="monospace"
+            android:text="@string/full_name"
+            android:textColor="#000"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/appoinmentTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="48dp"
+            android:fontFamily="monospace"
+            android:text="@string/appoinment"
+            android:textColor="#424242"
+            android:textSize="18sp" />
+    </android.support.v7.widget.CardView>
+
+
+
+        <ScrollView
+            android:id="@+id/scrollView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_gravity="bottom"
+            android:layout_marginTop="8dp"
+            android:layout_weight="20"
+            app:layout_constraintVertical_bias="0.252">
+
+            <LinearLayout
+                android:id="@+id/verticalLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
 
-        </LinearLayout>
-    </ScrollView>
+            </LinearLayout>
+        </ScrollView>
 
     <android.support.v7.widget.CardView
         android:id="@+id/bookAppoinmentCard"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_weight="0"
+        android:layout_marginTop="8dp"
         android:onClick="moveToDoctorList"
-        app:cardBackgroundColor="@color/background"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:cardBackgroundColor="@color/colorSecondary"
+       >
 
         <TextView
             android:layout_width="wrap_content"
@@ -95,7 +94,4 @@
             android:textSize="20sp" />
 
     </android.support.v7.widget.CardView>
-
-
-
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

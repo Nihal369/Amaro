@@ -248,7 +248,7 @@ public class Appoinments extends AppCompatActivity {
                         150));
                 lp.setMargins(18, 20, 18, 20);
                 cardView.setLayoutParams(lp);
-                cardView.setCardBackgroundColor(0xffffffff);
+                cardView.setCardBackgroundColor(0xff63D5C3);
                 cardView.setPadding(30, 30, 30, 30);
 
                 //Text view of the dynamic layout

@@ -4,12 +4,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/background">
+    android:background="@color/colorPrimary">
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:context="com.amaro.amaro.DoctorList"
-    android:background="@drawable/gradient"
+    android:background="@color/colorPrimary"
     android:orientation="vertical">
 
     <android.support.v7.widget.CardView
@@ -19,7 +19,7 @@
         android:layout_margin="16dp"
         android:tag="doc1"
         android:onClick="goToDoctorPage"
-        app:cardBackgroundColor="@color/background"
+        app:cardBackgroundColor="@color/colorSecondary"
         >
 
         <ImageView
@@ -64,7 +64,7 @@
         android:background="@drawable/gradient"
         android:onClick="goToDoctorPage"
         android:tag="doc2"
-        app:cardBackgroundColor="@color/background">
+        app:cardBackgroundColor="@color/colorSecondary">
 
         <ImageView
             android:id="@+id/doctorImage2"
@@ -103,7 +103,7 @@
         android:layout_margin="16dp"
         android:tag="doc3"
         android:onClick="goToDoctorPage"
-        app:cardBackgroundColor="@color/background"
+        app:cardBackgroundColor="@color/colorSecondary"
        >
 
         <ImageView

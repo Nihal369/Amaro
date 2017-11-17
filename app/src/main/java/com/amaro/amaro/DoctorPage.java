@@ -162,6 +162,7 @@ public class DoctorPage extends AppCompatActivity {
         //Check if the day is saturday
         else if (dayOfWeek[index] == Calendar.SATURDAY) {
             //Add 2 days to saturday,Update the variables
+            calendar.add(Calendar.DATE, 2);
             assignDates();
         }
 

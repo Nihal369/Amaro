@@ -489,6 +489,7 @@ public class DoctorPage extends AppCompatActivity {
         Calendar cal = Calendar.getInstance();
         cal.set(year, month, day, hour, 0);
         Intent intent = new Intent(Intent.ACTION_EDIT);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.setType("vnd.android.cursor.item/event");
         intent.putExtra("beginTime", cal.getTimeInMillis());
         intent.putExtra("endTime", cal.getTimeInMillis() + 3600000);
